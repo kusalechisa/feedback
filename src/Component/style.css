@@ -1,34 +1,33 @@
 
-  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.wallbody {
-    align-items: center;
-    justify-content: center;
-    background-color: #32dc37;
-}
+
 .container {
     width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #eeecec;
+    background-color: #e8e8e8;
 }
 
 .main {
-    
     position: relative;
     display: flex;
     flex-direction: column;
-    background-color: #642c04;
+    background-color: #240046;
     max-height: 450px;
     width: 400px;
     overflow: hidden;
     border-radius: 12px;
-    box-shadow: rgba(243, 242, 245, 0.442) 0px 30px 90px;
-    
+    box-shadow: rgba(59, 0, 130, 0.442) 0px 30px 90px;
 }
 
 .form {

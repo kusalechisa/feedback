@@ -1,9 +1,11 @@
  import './login.css'
- import './Mint.jpg'
+ import MintLogo from './Mint.jpg';
 
-function App() {
+
+ 
+function login() {
   return (
-    <div>
+    <div className="wallbody">
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -11,6 +13,7 @@ function App() {
         crossOrigin="anonymous"
         referrerPolicy="no-referrer"
       />
+
       <link rel="stylesheet" href="login.css" />
       <link rel="icon" type="image/png" href="Mint.jpg" />
 
@@ -45,10 +48,13 @@ function App() {
 
       <footer>
         <div className="container1">
-          <div className="footer-col">
-            <h2>Logo</h2>
-            <img className="footer-para" src="Mint.jpg" width="150" alt="logo of Mint" />
-          </div>
+
+
+        <div className="footer-col">
+  <h2>Logo</h2>
+  <img className="footer-para" src={MintLogo} width="150" alt="logo of Mint" />
+</div>
+
           <div className="footer-col">
             <h3 className="text-office">
               Office
@@ -117,7 +123,7 @@ function App() {
         </div>
       </footer>
     </div>
-  );
-}
+ );
+  }
 
-export default App;
+export default login;
