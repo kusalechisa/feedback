@@ -1,12 +1,20 @@
-
-import './login.css';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import './Login.css';
 import MintLogo from './Mint.jpg';
 
 function Login() {
+  const history = useHistory();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
 
-  const loginFunction=()=>{
-<h1>You Are registered</h1>
-  }
+  const handleLogin = () => {
+    // Perform login logic here, e.g., sending a request to the server
+
+    // Assuming login is successful
+    history.push('/Home.jsx');
+  };
 
   return (
     <div className="wallbody">
@@ -29,9 +37,25 @@ function Login() {
               <label htmlFor="chk" aria-hidden="true">
                 Log in
               </label>
-              <input className="input" type="email" name="email" placeholder="Email" required />
-              <input className="input" type="password" name="pswd" placeholder="Password" required />
-              <button onClick={loginFunction}>Log in</button>
+              <input
+                className="input"
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                className="input"
+                type="password"
+                name="pswd"
+                placeholder="Password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <button onClick={handleLogin}>Log in</button>
             </form>
           </div>
 
@@ -40,9 +64,29 @@ function Login() {
               <label htmlFor="chk" aria-hidden="true">
                 Register
               </label>
-              <input className="input" type="text" name="txt" placeholder="Username" required />
-              <input className="input" type="email" name="email" placeholder="Email" required />
-              <input className="input" type="password" name="pswd" placeholder="Password" required />
+              <input
+                className="input"
+                type="text"
+                name="txt"
+                placeholder="Username"
+                required
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <input
+                className="input"
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+              />
+              <input
+                className="input"
+                type="password"
+                name="pswd"
+                placeholder="Password"
+                required
+              />
               <button>Register</button>
             </form>
           </div>
@@ -65,13 +109,15 @@ function Login() {
             </h3>
             <p>2QF4+G2G, Arada 1/2</p>
             <p>Addis Abeba, Ethiopia</p>
-            <p className="email"><a href="https://mint.gov.et" target='_blank'>Got MInT Website</a></p>
+            <p className="email">
+              <a href="https://mint.gov.et" target="_blank" rel="noopener noreferrer">
+                Got MInT Website
+              </a>
+            </p>
             <p className="phone">+25111 126 5737</p>
           </div>
 
           <div className="footer-col">
-             
- 
             <div className="social-icons">
               <a href="#">
                 <i className="fa-brands fa-facebook"></i>
