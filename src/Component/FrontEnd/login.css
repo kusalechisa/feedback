@@ -1,62 +1,56 @@
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
   
-body {
+  body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-.wallbody {
-    align-items: center;
-    justify-content: center;
-    background-color: #32dc37;
-}
-.container {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #eeecec;
-}
 
-.main {
     
+  }
+  .container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+ 
+    z-index:1 ; /* Adjust the value as needed */
+    bottom: 15%; /* Adjust the value as needed */
+  }
+  .main {
     position: relative;
     display: flex;
     flex-direction: column;
-    background-color: #642c04;
+    background-color: #240046;
     max-height: 450px;
     width: 400px;
     overflow: hidden;
     border-radius: 12px;
-    box-shadow: rgba(243, 242, 245, 0.442) 0px 30px 90px;
+    box-shadow: rgba(59, 0, 130, 0.442) 0px 30px 90px;
     
-}
-
-.form {
+  }
+  
+  .form {
     display: flex;
     flex-direction: column;
     gap: 14px;
     padding: 24px;
-}
-
-
-
-#chk {
-    display: none;
-}
-
-
-
-.login {
+    align-items: center;
+  }
+  
+  .login {
     position: relative;
     width: 100%;
     height: 100%;
-}
-
-.login label {
+  }
+  
+  .login label {
     margin: 5% 0 5%;
-}
-
-label {
+  }
+  
+  label {
     color: #fff;
     font-size: 2rem;
     justify-content: center;
@@ -64,9 +58,9 @@ label {
     font-weight: bold;
     cursor: pointer;
     transition: .5s ease-in-out;
-}
-
-.input {
+  }
+  
+  .input {
     width: 100%;
     height: 40px;
     font-size: 1rem;
@@ -76,37 +70,33 @@ label {
     border: none;
     outline: none;
     border-radius: 4px;
-}
-
-
-
-.register {
+  }
+  
+  .register {
     background: #eee;
     border-radius: 60% / 10%;
     transition: .8s ease-in-out;
-}
-
-.register label {
+  }
+  
+  .register label {
     color: #573b8a;
     transform: scale(.6);
-}
-
-#chk:checked ~ .register {
+  }
+  
+  #chk:checked ~ .register {
     transform: translateY(-68%);
-}
-
-#chk:checked ~ .register label {
+  }
+  
+  #chk:checked ~ .register label {
     transform: scale(1);
     margin-bottom: .5rem;
-}
-
-#chk:checked ~ .login label {
+  }
+  
+  #chk:checked ~ .login label {
     transform: scale(.6);
-}   
-
-
-
-.form button {
+  }
+  
+  .form button {
     width: 70%;
     height: 40px;
     margin: 15px auto 10%;
@@ -118,30 +108,22 @@ label {
     border-radius: 4px;
     cursor: pointer;
     transition: .2s ease-in;
-}
-
-.form button:hover {
+  }
+  
+  .form button:hover {
     background-color: #6d44b8;
-}
+  }
 
-
-
-
-
-
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-}
-
+ 
 footer{
-    background: linear-gradient(to right, #00093c, #2d0b00);
-    border-top-left-radius: 100px;
     position: absolute;
-    bottom: 10;
+ 
+    z-index:0 ; 
+    bottom: -100%;  
+    background: linear-gradient(to right, #151d48, #1475a9);
+    border-top-left-radius: 100px;
     width: 100%;
+    
 }
 
 footer *{
@@ -249,3 +231,23 @@ p.phone{
 .footer-para{
     max-width: 200px;
 }
+
+@media (max-width: 768px) {
+    .container1 {
+      flex-wrap: wrap;
+    }
+  
+    .footer-col {
+      width: 50%;
+    }
+  
+    .footer-para {
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer-col {
+      width: 100%;
+    }
+  }

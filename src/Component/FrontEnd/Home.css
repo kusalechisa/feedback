@@ -1,0 +1,11 @@
+/* Home.css */
+
+.home-container {
+    /* Add your styles for the Home component container */
+    margin: 20px;
+  }
+  
+  .home-container br {
+    /* Add your styles for the line break */
+    margin-bottom: 10px;
+  }

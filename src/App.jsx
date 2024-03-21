@@ -1,4 +1,5 @@
-import Login from './Component/login.jsx'
+
+import Login from './Component/FrontEnd/login.jsx'
 
 function App() {
  
@@ -7,6 +8,7 @@ function App() {
   <>
 
   <Login/>
+  
   </>
    
   )

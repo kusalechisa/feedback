@@ -1,9 +1,13 @@
- import './login.css'
- import MintLogo from './Mint.jpg';
 
+import './login.css';
+import MintLogo from './Mint.jpg';
 
- 
-function login() {
+function Login() {
+
+  const loginFunction=()=>{
+<h1>You Are registered</h1>
+  }
+
   return (
     <div className="wallbody">
       <link
@@ -14,8 +18,7 @@ function login() {
         referrerPolicy="no-referrer"
       />
 
-      <link rel="stylesheet" href="login.css" />
-      <link rel="icon" type="image/png" href="Mint.jpg" />
+      <link rel="icon" type="image/png" href={MintLogo} />
 
       <div className="container">
         <div className="main">
@@ -28,7 +31,7 @@ function login() {
               </label>
               <input className="input" type="email" name="email" placeholder="Email" required />
               <input className="input" type="password" name="pswd" placeholder="Password" required />
-              <button>Log in</button>
+              <button onClick={loginFunction}>Log in</button>
             </form>
           </div>
 
@@ -48,12 +51,10 @@ function login() {
 
       <footer>
         <div className="container1">
-
-
-        <div className="footer-col">
-  <h2>Logo</h2>
-  <img className="footer-para" src={MintLogo} width="150" alt="logo of Mint" />
-</div>
+          <div className="footer-col">
+            <h2>Logo</h2>
+            <img className="footer-para" src={MintLogo} width="150" alt="logo of Mint" />
+          </div>
 
           <div className="footer-col">
             <h3 className="text-office">
@@ -62,46 +63,15 @@ function login() {
                 <span></span>
               </div>
             </h3>
-
             <p>2QF4+G2G, Arada 1/2</p>
             <p>Addis Abeba, Ethiopia</p>
+            <p className="email"><a href="https://mint.gov.et" target='_blank'>Got MInT Website</a></p>
+            <p className="phone">+25111 126 5737</p>
+          </div>
 
-            <p className="email">info@mint.gov.et</p>
-            <p className="phone">011 126 5737</p>
-          </div>
           <div className="footer-col">
-            <h3>
-              Menu
-              <div className="underline">
-                <span></span>
-              </div>
-            </h3>
-            <ul>
-              <li>
-                <a href="#">Home</a>
-              </li>
-              <li>
-                <a href="#">About</a>
-              </li>
-              <li>
-                <a href="#">Contact Us</a>
-              </li>
-            </ul>
-          </div>
-          <div className="footer-col">
-            <h3>
-              Newsletter
-              <div className="underline">
-                <span></span>
-              </div>
-            </h3>
-            <form action="">
-              <i className="fa-solid fa-envelope"></i>
-              <input type="text" placeholder="Enter Company Email" />
-              <a href="">
-                <i className="fa-solid fa-arrow-right"></i>
-              </a>
-            </form>
+             
+ 
             <div className="social-icons">
               <a href="#">
                 <i className="fa-brands fa-facebook"></i>
@@ -123,7 +93,7 @@ function login() {
         </div>
       </footer>
     </div>
- );
-  }
+  );
+}
 
-export default login;
+export default Login;
