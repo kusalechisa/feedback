@@ -1,6 +1,6 @@
 
-import Login from './Component/FrontEnd/Login'
-import Header from './Component/FrontEnd/Header'
+import Header from './Component/Header'
+import Login from './Component/login'
 
 function App() {
  
