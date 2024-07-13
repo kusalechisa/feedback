@@ -204,16 +204,17 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-
-        <NavLink
-          className={`nav-links ${activeLink === "about" ? "active" : ""}  `}
-          to="/adminLogin"
-          onClick={() => handleNavLinkClick("about")}
-        >
-          {labelLanguage[selectedLanguage]
-            ? labelLanguage[selectedLanguage][47]
-            : ""}
-        </NavLink>
+        {user || admin ? (
+       null
+        ) :    <NavLink
+            className={`nav-links ${activeLink === "about" ? "active" : ""}`}
+            to="/adminLogin"
+            onClick={() => handleNavLinkClick("about")}
+          >
+            {labelLanguage[selectedLanguage]
+              ? labelLanguage[selectedLanguage][47]
+              : ""}
+          </NavLink>}
       </nav>
     </>
   );
