@@ -1,0 +1,96 @@
+/* Background image section */
+.bg-images-complaint {
+  background-image: url("https://static.vect eezy.com/system/resources/previews/032/242/170/non_2x/beautiful-waterfall-flowers-water-nature-waterfall-hd-wallpaper-ai-generated-free-photo.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 30px;
+  height: 110vh;
+}
+
+/* Container for the form */
+.generals-complaint {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #eef3f3;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: #606060 solid;
+}
+
+/* Form container */
+.container-complaint {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Heading */
+.h3-complaint {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: rgb(246, 139, 8);
+  font-weight: bold;
+}
+.complaint,
+.phone {
+  font-size: 17px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Form input and textarea */
+.form-comments-complaint textarea{
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+.rounded-complaint {
+  height: 150px;
+}
+
+/* Error message for empty comment */
+.text-danger-complaint {
+  color: #ff0000;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Phone input container */
+.phone-complaint {
+  margin-top: 10px;
+  width: 200px;
+  padding-left: 5px;
+}
+
+/* Submit button */
+.btn-primary {
+  background-color: #009957;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 200px;
+}
+
+.btn-primary:hover {
+  background-color: #10df5c;
+}
+
+/* Responsive design */
+@media screen and (max-width: 480px) {
+  .generals-complaint {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .h3-complaint {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+}

@@ -1,0 +1,151 @@
+
+.generalfeed {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 5px;
+  padding-top: 10px;
+  height: 135vh;
+}
+
+.containerfeed {
+  background-color: rgb(239, 243, 244);
+  border: 2px solid grey;
+  padding-left: 5%;
+  padding-right: 5%;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.h3feed {
+  margin-top: 10px;
+  color: #eb7609;
+  border-radius: 5px;
+  text-align: center;
+}
+.form-Sectorfeed {
+  margin-bottom: 5px;
+}
+
+.form-Officefeed {
+  margin-bottom: 5px;
+}
+
+.form-Deskfeed {
+  margin-bottom: 5px;
+}
+
+.form-Ratingfeed {
+  margin-bottom: 5px;
+}
+
+.form-Phonefeed {
+  margin-bottom: 5px;
+}
+
+.form-Commentfeed {
+  margin-bottom: 5px;
+}
+
+.rating-containerfeed {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.form-check-input {
+  background-color: #c4bca7;
+}
+
+.empty-fieldfeed {
+  border-color: red;
+}
+
+.text-dangerfeed {
+  color: rgb(221, 87, 87);
+  font-weight: lighter;
+  font-size: 15px;
+}
+
+.btn-successfeed {
+  background-color: #28a745;
+  color: #fff;
+  border-color: #28a745;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.roundedfeed {
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+  height: 150px;
+  resize: vertical;
+}
+.btn-successfeed:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.btn-successfeed:active {
+  background-color: #1e7e34;
+  border-color: #1c7430;
+}
+
+.btn-successfeed:focus,
+.btn-successfeed.focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+}
+@media (max-width: 450px) {
+  .bg-imagefeed {
+    height: 110vh;
+  }
+  .generalfeed {
+    margin-top: auto;
+    height: 110vh;
+  }
+}
+
+.search-containerfeed {
+  position: relative;
+  margin: 20px 0;
+}
+
+.search {
+  position: absolute;
+  left: 10px;
+  bottom: 25px;
+  z-index: 10;
+  color: #ccc;
+  margin-right: 5px;
+}
+
+.search-resultsfeed {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 250px;
+  overflow-y: auto;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+ 
+}
+
+.search-result-itemfeed {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.search-result-itemfeed:hover {
+  background-color: #bcbdbf;
+}
+.form-search {
+  position: relative;
+  width: 200px;
+  border-radius: 10px;
+  padding-left: 40px;
+  outline: none;
+}

@@ -1,0 +1,88 @@
+import { Link, useNavigate } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+import { useFormik } from "formik";
+import { usernameValidate } from "../../helper/validate";
+import { useAuthStore } from "../../store/store";
+import "bootstrap/dist/css/bootstrap.css"; // Import Bootstrap CSS
+
+export default function ProfileLogin() {
+  const navigate = useNavigate();
+  const setUsername = useAuthStore((state) => state.setUsername);
+
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+    },
+    validate: usernameValidate,
+    validateOnBlur: false,
+    validateOnChange: false,
+    onSubmit: async (values) => {
+      setUsername(values.username);
+      navigate("/profileupdate");
+    },
+  });
+
+  return (
+    <section
+      className=" bg-image"
+      style={{
+        backgroundImage:
+          "url('https://images3.alp hacoders.com/133/1338701.png')",
+        backgroundColor: "rgb(255, 255, 255)",
+        paddingTop: "33px",
+        paddingBottom: "33px",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        width: "100%",
+        height: "100vh",
+      }}
+    >
+      <div
+        className="container"
+        style={{
+          backgroundColor: "rgb(239, 243, 244)",
+          width: "350px",
+          border: "1px solid #1d1f1d",
+          borderRadius: "8px",
+          marginTop: "8px",
+          height: "400px",
+        }}
+      >
+        <Toaster position="top-center" reverseOrder={false}></Toaster>
+        <div className="d-flex justify-content-center align-items-center">
+          <div className="glass py-2">
+            <div className="text-center">
+              <h3 className="py-3">Hello Admin!</h3>
+              <span className="py-3 lead text-gray-500">Enter Username</span>
+            </div>
+            <form className="py-3" onSubmit={formik.handleSubmit}>
+              <div className="d-flex flex-column align-items-center gap-3">
+                <input
+                  {...formik.getFieldProps("username")}
+                  className="w-20"
+                  type="text"
+                  placeholder="username"
+                />
+                <button className="btn btn-success" type="submit">
+                  Login
+                </button>
+              </div>
+              <div className="text-center py-4">
+                <span className="text-gray-500">
+                  Not Registered?{" "}
+                  <Link
+                    className="text-info "
+                    to="/adminsignup"
+                    style={{ fontWeight: "bold", textDecoration: "none" }}
+                  >
+                    Register
+                  </Link>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

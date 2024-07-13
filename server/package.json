@@ -1,0 +1,36 @@
+{
+  "proxy": "http://172.30.91.96:8080",
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "server": "nodemon server.js",
+    "build": "npm install --prefix ./client && npm run build --prefix ./client && npm install"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "bcrypt": "^5.1.0",
+    "bootstrap": "^5.3.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "json-server": "^1.0.0-alpha.23",
+    "jsonwebtoken": "^9.0.2",
+    "mailgen": "^2.0.27",
+    "mongodb-memory-server": "^8.10.2",
+    "mongoose": "^6.8.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.13",
+    "nodemon": "^3.1.0",
+    "otp-generator": "^4.0.0",
+    "react-bootstrap": "^2.10.2",
+    "validator": "^13.11.0"
+  }
+}

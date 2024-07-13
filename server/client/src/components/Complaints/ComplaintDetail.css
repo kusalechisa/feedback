@@ -1,0 +1,34 @@
+/* Print-specific styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .printable-table, 
+  .printable-table * {
+    visibility: visible;
+  }
+
+  .printable-table {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .printable-table th, 
+  .printable-table td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+  }
+
+  .printable-table th {
+    background-color: #f2f2f2;
+  }
+
+  .trash-column {
+    display: none;
+  }
+}

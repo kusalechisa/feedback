@@ -1,0 +1,94 @@
+/* Footer container */
+.container1 {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(214, 221, 216);
+  padding: 5px;
+  border-top: solid #000000;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+/* Footer columns */
+.footer-col {
+  margin: auto;
+  flex-basis: 30%;
+  max-width: 200px;
+  border-radius: 5px;
+  padding: 10px;
+}
+.footer-col:hover {
+  background-image: linear-gradient(to bottom, #d3e3ef, #bec7d5);
+  
+}
+
+/* Office column */
+.office-col .text-office {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.office-col .email a {
+  color: #201f1f;
+  font-weight: bold;
+  font-size: 17px;
+  text-decoration: none;
+}
+#im {
+  border-radius: 7px;
+  width: 240px;
+  height: 120px;
+  margin: auto;
+}
+#im:hover{
+  border: solid #cecdca 2px;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: auto;
+}
+
+/* Social column */
+.social-col .social-icons {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: auto;
+}
+
+.social-col .social-icons a {
+  margin-right: 10px;
+  color: #c81d1d;
+}
+
+/* Bottom text */
+footer p {
+  text-align: center;
+  color: #000000;
+  text-decoration: none;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+  .container1 {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-col {
+    flex-basis: 100%;
+    max-width: 400px;
+    width: 100%;
+  }
+  .footer-para {
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
