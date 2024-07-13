@@ -47,21 +47,15 @@ const FetchUsers = ({ users }) => {
     </>
   );
 
-  const handlePrint = () => {
-    window.print();
-  };
-
+ 
   return (
     <div>
-      <h3 className="text-success">Admin Table</h3>
-      <br />
+     
       <div>
-        <button className="btn btn-primary" onClick={handlePrint}>
-          Print Table
-        </button>
+     
         <hr />
         <div className="printable-table">
-          <table className="table table-success table-striped-columns">
+          <table className="table table-success table-striped-columns table-hover">
             <thead>
               <tr>
                 <th>Email</th>

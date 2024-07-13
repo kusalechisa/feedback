@@ -51,10 +51,11 @@ const ComplaintDetails = ({ complaints }) => {
         </button>
         <hr />
         <div className="printable-table">
-          <table className="table table-success table-striped-columns">
+          <table className="table table-bordered table-hover">
             <thead>
               <tr>
                 <th>Phone</th>
+                <th>Email</th>
                 <th>Complaint</th>
                 <th style={{ width: "130px" }}>Date</th>
                 <th className="trash-column">Delete</th>
@@ -64,6 +65,7 @@ const ComplaintDetails = ({ complaints }) => {
               {complaints.map((complaint) => (
                 <tr key={complaint._id}>
                   <td>{complaint.phone}</td>
+                  <td>{complaint.email}</td>
                   <td>{complaint.complaint}</td>
                   <td>{formatDate(new Date(complaint.createdAt))}</td>
                   <td className="trash-column">

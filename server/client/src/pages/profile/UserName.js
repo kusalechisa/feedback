@@ -28,8 +28,6 @@ export default function AdminLogin() {
     <section
       className="bg-image"
       style={{
-        backgroundImage:
-          "url('https://www.hdwa llpapers.in/download/laptop_ultra_4k_hd_desktop_background-HD.jpg')",
         backgroundColor: "rgb(255, 255, 255)",
         paddingTop: "33px",
         paddingBottom: "33px",
@@ -53,7 +51,6 @@ export default function AdminLogin() {
         <div className="d-flex justify-content-center align-items-center">
           <div className="glass py-2">
             <div className="text-center">
-              <h3 className="py-3">Hello Admin!</h3>
               <span className="py-3 lead text-gray-500">Enter Username</span>
             </div>
             <form className="py-3" onSubmit={formik.handleSubmit}>

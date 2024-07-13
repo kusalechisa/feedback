@@ -36,7 +36,7 @@ const UserDisplay = () => {
   return (
     <div className="home container" style={{ backgroundColor: "ButtonFace" }}>
       <br />
-      <h1 style={{ backgroundColor: "ButtonFace" }}> Admin Dashboard</h1>
+      <h1 style={{ backgroundColor: "ButtonFace" }}> Adminstrators</h1>
       <br />
       <hr style={{ borderTop: "2px solid #ee55df", margin: "20px 0" }} />
       <div className="row">

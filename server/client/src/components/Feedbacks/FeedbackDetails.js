@@ -72,7 +72,7 @@ const FeedbackDetails = ({ feedbacks }) => {
 
   return (
     <>
-    <br/>
+      <br />
       <div
         className="rounded col-md-6 px-3 mx-5"
         style={{ backgroundColor: "#ada9a8" }}
@@ -158,7 +158,7 @@ const FeedbackDetails = ({ feedbacks }) => {
       </button>
       <hr />
       <div className="printable-table">
-        <table className="table table-success table-striped-columns mx-auto table-hover">
+        <table className="table table-bordered table-hover">
           <thead>
             <tr>
               <th className="text-center">Sector</th>

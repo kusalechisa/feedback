@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { useFormik } from "formik";
 import { usernameValidate } from "../../helper/validate";
@@ -26,8 +26,6 @@ export default function ProfileLogin() {
     <section
       className=" bg-image"
       style={{
-        backgroundImage:
-          "url('https://images3.alp hacoders.com/133/1338701.png')",
         backgroundColor: "rgb(255, 255, 255)",
         paddingTop: "33px",
         paddingBottom: "33px",
@@ -52,7 +50,8 @@ export default function ProfileLogin() {
         <div className="d-flex justify-content-center align-items-center">
           <div className="glass py-2">
             <div className="text-center">
-              <h3 className="py-3">Hello Admin!</h3>
+              <br />
+              <br />
               <span className="py-3 lead text-gray-500">Enter Username</span>
             </div>
             <form className="py-3" onSubmit={formik.handleSubmit}>
@@ -66,18 +65,6 @@ export default function ProfileLogin() {
                 <button className="btn btn-success" type="submit">
                   Login
                 </button>
-              </div>
-              <div className="text-center py-4">
-                <span className="text-gray-500">
-                  Not Registered?{" "}
-                  <Link
-                    className="text-info "
-                    to="/adminsignup"
-                    style={{ fontWeight: "bold", textDecoration: "none" }}
-                  >
-                    Register
-                  </Link>
-                </span>
               </div>
             </form>
           </div>
