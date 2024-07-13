@@ -1,11 +1,4 @@
 /* Background image section */
-.bg-images-complaint {
-  background-image: url("https://static.vect eezy.com/system/resources/previews/032/242/170/non_2x/beautiful-waterfall-flowers-water-nature-waterfall-hd-wallpaper-ai-generated-free-photo.jpg");
-  background-size: cover;
-  background-position: center;
-  padding: 30px;
-  height: 110vh;
-}
 
 /* Container for the form */
 .generals-complaint {
@@ -41,7 +34,7 @@
 }
 
 /* Form input and textarea */
-.form-comments-complaint textarea{
+.form-comments-complaint textarea {
   width: 100%;
   padding: 5px;
   border: 1px solid #ccc;

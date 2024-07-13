@@ -127,6 +127,7 @@ const ComplaintForm = () => {
               <input
                 className="px-3"
                 id="phone"
+                type="tel"
                 onChange={(e) => setPhone(e.target.value)}
                 value={phone}
                 placeholder="+251(optional)"
