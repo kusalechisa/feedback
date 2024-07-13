@@ -47,7 +47,7 @@ const Analyze = () => {
   // Update the chart and calculate counts when feedbacks or selectedSector changes
   useEffect(() => {
     if (feedbacks) {
-      const labels = ["Very Bad", "Bad", "Average", "Good", "Excellent"];
+      const labels = ["Not Good", "Bad", "Average", "Good", "Very Good"];
       let filteredWorkouts = feedbacks;
       if (selectedState !== "both") {
         filteredWorkouts = filteredWorkouts.filter(

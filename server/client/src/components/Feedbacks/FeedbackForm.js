@@ -78,7 +78,7 @@ const FeedBackForm = () => {
       setComment("");
       setIdentity("");
 
-      dispatch({ type: "CREATE_FEEDBACK", payload: json });
+      dispatch({ type: "CREATE_COMPLAINT", payload: json });
       // Display a success toast notification
       toast.success("Sent successfully", {
         position: toast.POSITION,
@@ -91,7 +91,7 @@ const FeedBackForm = () => {
     setShowError(false); // Hide the error message
   };
 
-  const ratingLabels = ["Very Bad", "Bad", "Average", "Good", "Excellent"];
+  const ratingLabels = ["Bad","Not Good", "Average", "Good", "Very Good"];
 
   const handleSearch = (e) => {
     const searchTerm = e.target.value;
