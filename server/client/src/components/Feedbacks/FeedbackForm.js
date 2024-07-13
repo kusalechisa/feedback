@@ -91,7 +91,7 @@ const FeedBackForm = () => {
     setShowError(false); // Hide the error message
   };
 
-  const ratingLabels = ["Bad","Not Good", "Average", "Good", "Very Good"];
+  const ratingLabels = ["Not Good", "Average", "Good", "Very Good"];
 
   const handleSearch = (e) => {
     const searchTerm = e.target.value;
@@ -270,7 +270,7 @@ const FeedBackForm = () => {
               <option value="">
                 {" "}
                 {labelLanguage[selectedLanguage]
-                  ? labelLanguage[selectedLanguage][48]
+                  ? labelLanguage[selectedLanguage][12]
                   : ""}
               </option>
               {sectorLabel[selectedLanguage]?.map((label, index) => (

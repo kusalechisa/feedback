@@ -47,7 +47,7 @@ const Analyze = () => {
   // Update the chart and calculate counts when feedbacks or selectedSector changes
   useEffect(() => {
     if (feedbacks) {
-      const labels = ["Not Good", "Bad", "Average", "Good", "Very Good"];
+      const labels = ["Not Good", "Average", "Good", "Very Good"];
       let filteredWorkouts = feedbacks;
       if (selectedState !== "both") {
         filteredWorkouts = filteredWorkouts.filter(
@@ -87,7 +87,6 @@ const Analyze = () => {
 
       const colors = [
         "#d40334", // Red
-        "#d97777", // Red
         "#d5e6df", // Light Green
         "#62de8b", // Green
         "#53ad71", // Bright Green

@@ -38,6 +38,7 @@ out/
 docs/
 # build/
 dist/
+build/
 # Ignore test coverage reports
 coverage/
 

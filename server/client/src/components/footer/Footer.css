@@ -2,7 +2,7 @@
 .container1 {
   display: flex;
   justify-content: space-around;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.6);
   padding: 5px;
   border-top: solid #000000;
   border-top-left-radius: 30px;
@@ -94,8 +94,13 @@ footer p {
     width: 100%;
     margin-bottom: 15px;
   }
+  .phone{
+    padding: 20px;
+    
+  }
 }
 #copywrite {
+  margin-top:35px;
   position: absolute;
   bottom: -17px;
   left: 50%;
