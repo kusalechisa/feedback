@@ -5,7 +5,8 @@ import convertToBase64 from "../../helper/convert";
 import { registerUser } from "../../helper/helper";
 import avatar from "../../assets/profile.png";
 import { Toaster } from "react-hot-toast";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export default function AdminSignup() {
   const [file, setFile] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -35,7 +36,9 @@ export default function AdminSignup() {
         }
         setIsRegistering(true); // Set the registering state to true
         await registerUser(values);
-
+        toast.success("Registered Successfully!", {
+          position: toast.POSITION,
+        });
         setIsRegistering(false);
 
         values.email = "";
@@ -74,7 +77,7 @@ export default function AdminSignup() {
         width: "100%",
         height: "100vh",
       }}
-    >
+    ><ToastContainer/>
       <Toaster position="top-center" />
       <div
         className="bg-image d-flex justify-content-center align-items-center"
