@@ -13,6 +13,10 @@ const complaintSchema = new Schema(
       type: String,
       default: "null",
     },
+    email: {
+      type: String,
+      default: "null",
+    },
   },
   { timestamps: true }
 ); // Adds createdAt and updatedAt fields automatically

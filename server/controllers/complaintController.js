@@ -27,11 +27,7 @@ const getComplaint = async (req, res) => {
 
 // create a new workout
 const createComplaint = async (req, res) => {
-  const {
-
-    phone,
-    complaint,
-  } = req.body;
+  const { phone, complaint, email } = req.body;
 
   // add to the database
   try {
@@ -39,6 +35,7 @@ const createComplaint = async (req, res) => {
     const complain = await Complaint.create({
       phone,
       complaint,
+      email,
     });
     res.status(200).json(complain);
   } catch (error) {

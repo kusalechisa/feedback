@@ -2,13 +2,14 @@ import React, { useContext, useEffect, useRef } from "react";
 import "./MainPage.css";
 import Footer from "../../components/footer/Footer";
 import { LanguageContext } from "../../context/LanguageContext";
+import image0 from "../../assets/img0.png";
+import image1 from "../../assets/img1.png";
 import image2 from "../../assets/img2.png";
-import image3 from "../../assets/img3.jpg";
 import image4 from "../../assets/img4.jpg";
 import image6 from "../../assets/img6.jpg";
 import image7 from "../../assets/img7.jpg";
 import image8 from "../../assets/img8.jpg";
-import image10 from "../../assets/img10.png";
+
 import image12 from "../../assets/img12.png";
 
 function MainPage() {
@@ -20,13 +21,15 @@ function MainPage() {
     let currentImageIndex = 0;
 
     const images = [
+      image0,
+      image1,
       image2,
-      image3,
+
       image4,
       image6,
       image7,
       image8,
-      image10,
+
       image12,
     ];
 
@@ -66,7 +69,7 @@ function MainPage() {
             ? labelLanguage[selectedLanguage][29]
             : ""}
         </h3>
-         <Footer />
+        <Footer />
       </div>
     </section>
   );

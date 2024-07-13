@@ -36,7 +36,7 @@ const LanguageProvider = ({ children }) => {
       "please choose an office!",
       "please choose desk!",
       "Ministry Of Innovation And Technology",
-      "Feedback and Anti-Corruption Giving System",
+      "Complaint and Corruption Suggestion System",
       "The Ministry Of Innovation And Technology is one of the 19 ministerial offices re-organize in a new manner by being accountable to the office of the prime minister after duly established as per Article 55 Sub Article 1 of the FDRE Proclamation No. 1097/2018.",
       "Contact Us",
       "Phone:",
@@ -54,7 +54,7 @@ const LanguageProvider = ({ children }) => {
       "Email:",
       "main issue",
       "example@gmail.com",
-      "Admin",
+      "Login",
       "select sector",
     ],
     Am: [

@@ -78,7 +78,7 @@ const FeedBackForm = () => {
       setComment("");
       setIdentity("");
 
-      dispatch({ type: "CREATE_COMPLAINT", payload: json });
+      dispatch({ type: "CREATE_FEEDBACK", payload: json });
       // Display a success toast notification
       toast.success("Sent successfully", {
         position: toast.POSITION,

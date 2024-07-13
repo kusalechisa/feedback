@@ -1,25 +1,21 @@
 import React, { useContext, useState } from "react";
-import { useFeedbackContext } from "../../hooks/useFeedbackContext";
+import { useComplaintContext } from "../../hooks/useComplaintContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { LanguageContext } from "../../context/LanguageContext";
 import "./ComplaintForm.css";
 
 const ComplaintForm = () => {
-  const { dispatchc } = useFeedbackContext();
+  const { dispatchc } = useComplaintContext();
 
   const [phone, setPhone] = useState("");
   const [complaint, setComplaint] = useState("");
-  const [setError] = useState(null);
+  const [setError] = useState("");
   const [showError, setShowError] = useState(null);
   const { selectedLanguage, labelLanguage } = useContext(LanguageContext);
-
+  const [email, setEmail] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (phone === "") {
-      setPhone("No Number!");
-    }
 
     if (complaint === "") {
       setShowError(true);
@@ -29,6 +25,7 @@ const ComplaintForm = () => {
     const Complaint = {
       phone,
       complaint,
+      email,
     };
 
     try {
@@ -47,6 +44,7 @@ const ComplaintForm = () => {
         toast.error(json.error);
       } else {
         setPhone("");
+        setEmail("");
         setComplaint("");
         dispatchc({ type: "CREATE_COMPLAINT", payload: json });
         toast.success("Complaint Sent!", {
@@ -55,7 +53,6 @@ const ComplaintForm = () => {
       }
     } catch (error) {
       console.error("Error:", error);
-      setError("An error occurred. Please try again later.");
     }
   };
 
@@ -98,22 +95,45 @@ const ComplaintForm = () => {
               </span>
             )}
           </div>
-          <div className="form-phones-complaint">
-            <label className="phone">
+
+          <div className="form-Emailfeed">
+            <label htmlFor="email">
+              {labelLanguage[selectedLanguage]
+                ? labelLanguage[selectedLanguage][44]
+                : ""}
+            </label>
+            <div>
+              <input
+                className="px-3"
+                id="email"
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                placeholder={
+                  labelLanguage[selectedLanguage]
+                    ? labelLanguage[selectedLanguage][46]
+                    : ""
+                }
+              />
+            </div>
+          </div>
+          <div className="form-Phonefeed">
+            <label htmlFor="phone">
               {labelLanguage[selectedLanguage]
                 ? labelLanguage[selectedLanguage][4]
                 : ""}
             </label>
             <div>
               <input
-                className="phone-complaint"
+                className="px-3"
                 id="phone"
                 onChange={(e) => setPhone(e.target.value)}
                 value={phone}
-                placeholder="+251"
+                placeholder="+251(optional)"
               />
             </div>
           </div>
+
           <br />
           <button
             type="submit"
