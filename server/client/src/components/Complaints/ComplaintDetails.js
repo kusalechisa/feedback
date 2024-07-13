@@ -6,7 +6,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import "./ComplaintDetail.css";
 
 const ComplaintDetails = ({ complaints }) => {
-  const { dispatch } = useComplaintContext();
+  const { dispatchc } = useComplaintContext();
   const { admin } = useAuthContextC();
 
   const handleClick = async (complaintId) => {
@@ -24,7 +24,7 @@ const ComplaintDetails = ({ complaints }) => {
     const json = await response.json();
 
     if (response.ok) {
-      dispatch({ type: "DELETE_COMPLAINT", payload: json });
+      dispatchc({ type: "DELETE_COMPLAINT", payload: json });
     }
   };
 

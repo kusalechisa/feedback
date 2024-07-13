@@ -30,13 +30,13 @@ export const complaintsReducer = (state, action) => {
 
 // Create WorkoutsContextProvider component
 export const ComplaintsContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(complaintsReducer, {
+  const [state, dispatchc] = useReducer(complaintsReducer, {
     complaints: [], // Initialize as an empty array
   });
 
   return (
-    // Provide the WorkoutsContext value with the current state and dispatch function
-    <ComplaintsContext.Provider value={{ ...state, dispatch }}>
+    // Provide the WorkoutsContext value with the current state and dispatchc function
+    <ComplaintsContext.Provider value={{ ...state, dispatchc }}>
       {children}
     </ComplaintsContext.Provider>
   );

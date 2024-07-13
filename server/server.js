@@ -47,7 +47,7 @@ app.use((req, res, next) => {
 connect()
   .then(() => {
     app.listen(port, () => {
-      console.log(`Server connected to http://172.30.91.96:${port}`);
+      console.log(`Server connected to http://localhost:${port}`);
     });
   })
   .catch((error) => {

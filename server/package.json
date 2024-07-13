@@ -1,5 +1,5 @@
 {
-  "proxy": "http://172.30.91.96:8080",
+  "proxy": "http://localhost:8080",
   "name": "server",
   "version": "1.0.0",
   "description": "",

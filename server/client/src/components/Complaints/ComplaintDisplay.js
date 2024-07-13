@@ -8,7 +8,7 @@ import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 // Home component
 const ComplaintDisplay = () => {
-  const { complaints, dispatch } = useComplaintContext();
+  const { complaints, dispatchc } = useComplaintContext();
   const { admin } = useAuthContextC();
 
   useEffect(() => {
@@ -19,14 +19,14 @@ const ComplaintDisplay = () => {
       const json = await response.json();
 
       if (response.ok) {
-        dispatch({ type: "SET_COMPLAINTS", payload: json });
+        dispatchc({ type: "SET_COMPLAINTS", payload: json });
       }
     };
 
     if (admin) {
       fetchComplaints();
     }
-  }, [dispatch, admin]);
+  }, [dispatchc, admin]);
   const handleScrollDown = () => {
     window.scrollTo({
       top: document.documentElement.scrollHeight,

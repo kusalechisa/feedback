@@ -7,6 +7,9 @@
   border-top: solid #000000;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
 }
 
 /* Footer columns */
@@ -19,7 +22,6 @@
 }
 .footer-col:hover {
   background-image: linear-gradient(to bottom, #d3e3ef, #bec7d5);
-  
 }
 
 /* Office column */
@@ -40,7 +42,7 @@
   height: 120px;
   margin: auto;
 }
-#im:hover{
+#im:hover {
   border: solid #cecdca 2px;
 }
 
@@ -91,4 +93,11 @@ footer p {
     width: 100%;
     margin-bottom: 15px;
   }
+}
+#copywrite {
+  position: absolute;
+  bottom: -17px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 15px;
 }

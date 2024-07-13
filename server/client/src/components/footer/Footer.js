@@ -75,7 +75,7 @@ function Footer() {
           </p>
         </div>
       </div>
-      <p>
+      <p id="copywrite">
         &copy; {new Date().getFullYear()} Ministry Of Innovation And Technology.
         All Right Is Reserved
       </p>

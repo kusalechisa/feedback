@@ -4,7 +4,7 @@ import { useAuthContextC } from "./useAuthContextC";
 export const useLoginC = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const { dispatch } = useAuthContextC();
+  const { dispatchc } = useAuthContextC();
 
   const adminlogin = async (username, email, password) => {
     setIsLoading(true);
@@ -37,7 +37,7 @@ export const useLoginC = () => {
       if (isAdmin) {
         // Store combined user data in localStorage
         localStorage.setItem("admin", JSON.stringify(userData));
-        dispatch({ type: "LOGIN", payload: userData });
+        dispatchc({ type: "LOGIN", payload: userData });
       }
 
       setIsLoading(false);

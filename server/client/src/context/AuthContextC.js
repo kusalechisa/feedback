@@ -16,7 +16,7 @@ export const authReducerc = (state, action) => {
 };
 
 export const AuthContextProviderC = ({ children }) => {
-  const [state, dispatch] = useReducer(authReducerc, {
+  const [state, dispatchc] = useReducer(authReducerc, {
     admin: null,
   });
 
@@ -24,17 +24,17 @@ export const AuthContextProviderC = ({ children }) => {
     // Check if admin data is stored in localStorage
     const admin = JSON.parse(localStorage.getItem("admin"));
 
-    // If admin data exists, dispatch LOGIN action to update state
+    // If admin data exists, dispatchc LOGIN action to update state
     if (admin) {
-      dispatch({ type: "LOGIN", payload: admin });
+      dispatchc({ type: "LOGIN", payload: admin });
     }
   }, []);
 
   console.log("AuthContextC state:", state);
 
   return (
-    // Provide the AuthContext value with the current state and dispatch function
-    <AuthContextC.Provider value={{ ...state, dispatch }}>
+    // Provide the AuthContext value with the current state and dispatchc function
+    <AuthContextC.Provider value={{ ...state, dispatchc }}>
       {children}
     </AuthContextC.Provider>
   );

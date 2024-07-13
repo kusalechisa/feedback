@@ -1,10 +1,14 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 import { useAuthContext } from "./useAuthContext";
+import { useAuthContextC } from "./useAuthContextC";
 
 export const useLogin = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { dispatch } = useAuthContext();
+  const { dispatchc } = useAuthContextC();
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const userlogin = async (username, email, password) => {
     setIsLoading(true);
@@ -35,9 +39,12 @@ export const useLogin = () => {
         // Store combined user data in localStorage
         localStorage.setItem("user", JSON.stringify(userData));
         dispatch({ type: "LOGIN", payload: userData });
-      }
-      if (isAdmin) {
-        setError("unknown account");
+        navigate("/"); // Navigate to user dashboard
+      } else {
+        // Store combined user data in localStorage
+        localStorage.setItem("admin", JSON.stringify(userData));
+        dispatchc({ type: "LOGIN", payload: userData });
+        navigate("/"); // Navigate to admin dashboard
       }
 
       setIsLoading(false);

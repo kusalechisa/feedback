@@ -6,7 +6,7 @@ import { LanguageContext } from "../../context/LanguageContext";
 import "./ComplaintForm.css";
 
 const ComplaintForm = () => {
-  const { dispatch } = useFeedbackContext();
+  const { dispatchc } = useFeedbackContext();
 
   const [phone, setPhone] = useState("");
   const [complaint, setComplaint] = useState("");
@@ -48,7 +48,7 @@ const ComplaintForm = () => {
       } else {
         setPhone("");
         setComplaint("");
-        dispatch({ type: "CREATE_COMPLAINT", payload: json });
+        dispatchc({ type: "CREATE_COMPLAINT", payload: json });
         toast.success("Complaint Sent!", {
           position: toast.POSITION,
         });

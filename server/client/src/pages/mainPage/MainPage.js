@@ -66,12 +66,7 @@ function MainPage() {
             ? labelLanguage[selectedLanguage][29]
             : ""}
         </h3>
-        <p className="paragraph">
-          {labelLanguage[selectedLanguage]
-            ? labelLanguage[selectedLanguage][30]
-            : ""}
-        </p>
-        <Footer />
+         <Footer />
       </div>
     </section>
   );
