@@ -62,7 +62,7 @@ const UserLogin = () => {
                     }}
                   >
                     <div className="card-body py-4 vw-auto">
-                      <h4 style={{ paddingLeft: "50px" }}>Feedback Admin</h4>
+                      <h4 style={{ textAlign:"center" }}>Admin</h4>
                       <div className="form-outline mb-3 mt-3 p-0 b-1rem">
                         <input
                           type="text"

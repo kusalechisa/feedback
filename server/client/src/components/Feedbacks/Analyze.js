@@ -20,6 +20,11 @@ const Analyze = () => {
   // Reference to the Chart.js instance
   const chartInstanceRef = useRef(null);
   const [selectedState, setSelectedState] = useState("both");
+
+  // State to store the counts of each label and the total feedbacks
+  const [labelCounts, setLabelCounts] = useState({});
+  const [totalFeedbacks, setTotalFeedbacks] = useState(0);
+
   // Fetch feedbacks from the API when the user changes
   useEffect(() => {
     const fetchWorkouts = async () => {
@@ -39,10 +44,10 @@ const Analyze = () => {
     }
   }, [dispatch, user]);
 
-  // Update the chart when feedbacks or selectedSector changes
+  // Update the chart and calculate counts when feedbacks or selectedSector changes
   useEffect(() => {
     if (feedbacks) {
-      const labels = ["Bad", "Average", "Good", "Excellent"];
+      const labels = ["Very Bad", "Bad", "Average", "Good", "Excellent"];
       let filteredWorkouts = feedbacks;
       if (selectedState !== "both") {
         filteredWorkouts = filteredWorkouts.filter(
@@ -63,17 +68,26 @@ const Analyze = () => {
         );
       }
 
-      const totalFeedbacks = filteredWorkouts.length;
+      const totalFeedbacksCount = filteredWorkouts.length;
+      const labelCounts = labels.reduce((acc, label) => {
+        acc[label] = filteredWorkouts.filter(
+          (feedback) => feedback.stars === label
+        ).length;
+        return acc;
+      }, {});
+
       const data = labels.map((label) => {
-        const count = filteredWorkouts.reduce((total, feedback) => {
-          return feedback.stars === label ? total + 1 : total;
-        }, 0);
-        const percentage = (count / totalFeedbacks) * 100;
+        const count = labelCounts[label] || 0;
+        const percentage = (count / totalFeedbacksCount) * 100;
         return percentage.toFixed(2);
       });
 
+      setLabelCounts(labelCounts);
+      setTotalFeedbacks(totalFeedbacksCount);
+
       const colors = [
-        "#d95557", // Red
+        "#d40334", // Red
+        "#d97777", // Red
         "#d5e6df", // Light Green
         "#62de8b", // Green
         "#53ad71", // Bright Green
@@ -87,7 +101,7 @@ const Analyze = () => {
         chartInstanceRef.current.destroy();
       }
 
-      // Create a new Chart.js instance and render a bar chart
+      // Create a new Chart.js instance and render a pie chart
       chartInstanceRef.current = new Chart(ctx, {
         type: "pie",
         data: {
@@ -116,6 +130,7 @@ const Analyze = () => {
       });
     }
   }, [feedbacks, selectedSector, selectedOffice, selectedState]);
+
   return (
     <div
       className="home container rounded"
@@ -207,6 +222,18 @@ const Analyze = () => {
         </div>
       </div>
       <br />
+      <div className="row">
+        <div className="col-md-12">
+          <h4>Total Feedbacks: {totalFeedbacks}</h4>
+          <ul>
+            {Object.entries(labelCounts).map(([label, count]) => (
+              <li key={label}>
+                {label}: {count}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
       <br />
     </div>
   );

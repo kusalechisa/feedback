@@ -72,9 +72,7 @@ const FeedbackDetails = ({ feedbacks }) => {
 
   return (
     <>
-      <br />
-      <h3 className="text-info px-5">Choose Sector you want to display</h3>
-      <br />
+    <br/>
       <div
         className="rounded col-md-6 px-3 mx-5"
         style={{ backgroundColor: "#ada9a8" }}

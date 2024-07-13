@@ -50,111 +50,95 @@ const FeedbackDisplay = () => {
 
   return (
     <div
-      className="home container"
+      className="home containers"
       style={{
-        display: "flow",
-        justifyContent: "center",
-        alignItems: "center",
         backgroundColor: "ButtonFace",
       }}
     >
-      <div
-        className="row"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "auto",
-          backgroundColor: "ButtonFace",
-        }}
-      >
+      <div className="rows">
         <br />
         <h1 style={{ backgroundColor: "ButtonFace", marginTop: "10px" }}>
-          Feedback Dashboard
+          Complaint Dashboard
         </h1>
         <br />
         <hr style={{ borderTop: "3px solid #ee55df", margin: "20px 0" }} />
-        <div className="feedbacks">
-          <div className="container">
-            <div
+
+        <div className="container">
+          <div
+            style={{
+              textAlign: "center",
+            }}
+          >
+            <button
+              className={`graph-button ${
+                displaygraph === "graph" ? "active" : ""
+              }`}
+              onClick={() => handleButton()}
               style={{
-                marginTop: "20px",
-                display: "flex",
-                justifyContent: "center",
-                backgroundColor: "ButtonFace",
+                backgroundColor: "#fffeee",
+                fontSize: "32px",
+                borderRadius: "7px",
+                fontFamily: "bold",
+                cursor: "pointer",
+                color: "black",
+                transition: "background-color 0.3s ease",
               }}
             >
-              <button
-                className={`graph-button ${
-                  displaygraph === "graph" ? "active" : ""
-                }`}
-                onClick={() => handleButton()}
-                style={{
-                  backgroundColor: "#fffeee",
-                  fontSize: "32px",
-                  borderRadius: "7px",
-                  fontFamily: "bold",
-                  cursor: "pointer",
-                  color: "black",
-                  transition: "background-color 0.3s ease",
-                }}
-              >
-                {displaygraph === "graph" ? "Show Table" : "Show Graph"}
-              </button>
+              {displaygraph === "graph" ? "Show Table" : "Show Graph"}
+            </button>
+          </div>
+        </div>
+
+        {displaygraph === "graph" ? (
+          <div className="feedbacks">
+            <br />
+            <h1>Graph Based Rating</h1>
+            <br />
+            <Analyze />
+            <br />
+            <br />
+          </div>
+        ) : (
+          <div>
+            <br />
+            <div className="container">
+              {feedbacks && feedbacks.length > 0 ? (
+                <FeedbackDetails feedbacks={feedbacks} />
+              ) : (
+                <h1>No Comment</h1>
+              )}
             </div>
           </div>
-
-          {displaygraph === "graph" ? (
-            <div className="feedbacks">
-              <br />
-              <h1>Graph Based Rating</h1>
-              <br />
-              <Analyze />
-              <br />
-              <br />
-            </div>
-          ) : (
-            <div>
-              <br />
-              <div className="container">
-                {feedbacks && feedbacks.length > 0 ? (
-                  <FeedbackDetails feedbacks={feedbacks} />
-                ) : (
-                  <h1>No Comment</h1>
-                )}
-              </div>
-            </div>
-          )}
-        </div>
-        <br />
-        <div
-          className="scroll-buttons"
-          style={{
-            position: "fixed",
-            top: "64px",
-            right: "5px",
-            width: "60px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
+        )}
+      </div>
+      <br />
+      <div
+        className="scroll-buttons"
+        style={{
+          position: "fixed",
+          top: "64px",
+          right: "5px",
+          width: "60px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <button
+          className="btn btn-info"
+          style={{ margin: "5px" }}
+          onClick={handleScrollUp}
         >
-          <button
-            className="btn btn-info"
-            style={{ margin: "5px" }}
-            onClick={handleScrollUp}
-          >
-            <FontAwesomeIcon icon={faArrowUp} />
-          </button>
-          <button
-            className="btn btn-info"
-            style={{ margin: "5px" }}
-            onClick={handleScrollDown}
-          >
-            <FontAwesomeIcon icon={faArrowDown} />
-          </button>
-        </div>
+          <FontAwesomeIcon icon={faArrowUp} />
+        </button>
+        <button
+          className="btn btn-info"
+          style={{ margin: "5px" }}
+          onClick={handleScrollDown}
+        >
+          <FontAwesomeIcon icon={faArrowDown} />
+        </button>
       </div>
     </div>
   );
