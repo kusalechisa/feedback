@@ -111,3 +111,10 @@ select {
 .search-result-itemfeed:hover {
   background-color: #fbfbfb;
 }
+/* FeedbackDetails.css */
+
+.selectors-container {
+  display: flex;
+  gap: 20px; /* Adjust the gap as needed */
+  align-items: flex-start; /* Aligns items at the start of the container */
+}

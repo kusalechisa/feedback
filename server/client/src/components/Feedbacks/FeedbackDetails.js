@@ -73,87 +73,90 @@ const FeedbackDetails = ({ feedbacks }) => {
   return (
     <>
       <br />
-      <div
-        className="rounded col-md-6 px-3 mx-5"
-        style={{ backgroundColor: "#ada9a8" }}
-      >
-        <div>
-          <h4 htmlFor="sector">Sector:</h4>
-          <select
-            id="sector"
-            onChange={(e) => {
-              setSelectedSector(e.target.value);
-              setSelectedOffice(""); // Reset the selected office when changing sector
-            }}
-            value={selectedSector}
-            className={`form-control ${
-              selectedSector === "" ? "empty-field" : ""
-            } form-select form-select-md`}
-          >
-            <option value="">All Sectors</option>
-            {Array.from(
-              new Set(feedbacks?.map((feedback) => feedback.selectedSector)) ||
-                []
-            ).map((sector, index) => (
-              <option key={index} value={sector}>
-                {sector}
-              </option>
-            ))}
-          </select>
-        </div>
-        {selectedSector !== "" && feedbacks && feedbacks.length > 0 && (
+      <br />
+      <div className="selectors-container">
+        <div
+          className="selectorclass rounded px-3 mx-5"
+          style={{ backgroundColor: "#ada9a8" }}
+        >
           <div>
-            <br />
-            <h5 htmlFor="office">Office:</h5>
+            <h4 htmlFor="sector">Sector:</h4>
             <select
-              id="office"
-              onChange={(e) => setSelectedOffice(e.target.value)}
-              value={selectedOffice}
+              id="sector"
+              onChange={(e) => {
+                setSelectedSector(e.target.value);
+                setSelectedOffice(""); // Reset the selected office when changing sector
+              }}
+              value={selectedSector}
               className={`form-control ${
-                selectedOffice === "" ? "empty-field" : ""
+                selectedSector === "" ? "empty-field" : ""
               } form-select form-select-md`}
             >
-              <option value="">All Offices</option>
+              <option value="">All Sectors</option>
               {Array.from(
                 new Set(
-                  feedbacks
-                    .filter(
-                      (feedback) => feedback.selectedSector === selectedSector
-                    )
-                    ?.map((feedback) => feedback.selectedOffice) || []
-                )
-              ).map((office, index) => (
-                <option key={index} value={office}>
-                  {office}
+                  feedbacks?.map((feedback) => feedback.selectedSector)
+                ) || []
+              ).map((sector, index) => (
+                <option key={index} value={sector}>
+                  {sector}
                 </option>
               ))}
             </select>
           </div>
-        )}
-        <br />
-        <br />
+          {selectedSector !== "" && feedbacks && feedbacks.length > 0 && (
+            <div>
+              <br />
+              <h5 htmlFor="office">Office:</h5>
+              <select
+                id="office"
+                onChange={(e) => setSelectedOffice(e.target.value)}
+                value={selectedOffice}
+                className={`form-control ${
+                  selectedOffice === "" ? "empty-field" : ""
+                } form-select form-select-md`}
+              >
+                <option value="">All Offices</option>
+                {Array.from(
+                  new Set(
+                    feedbacks
+                      .filter(
+                        (feedback) => feedback.selectedSector === selectedSector
+                      )
+                      ?.map((feedback) => feedback.selectedOffice) || []
+                  )
+                ).map((office, index) => (
+                  <option key={index} value={office}>
+                    {office}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
+          <br />
+          <br />
+        </div>
+        <div className="identity-container">
+          <h3 htmlFor="state">Customer:</h3>
+          <select
+            id="state"
+            onChange={(e) => setSelectedState(e.target.value)}
+            value={selectedState}
+            className={`form-control ${
+              selectedState === "" ? "empty-field" : ""
+            } form-select form-select-md`}
+          >
+            <option value="both">Both</option>
+            <option value="internal">Internal</option>
+            <option value="external">External</option>
+          </select>
+        </div>
       </div>
-      <br />
-      <br />
-      <h3 className="text-success mx-5 px-4">Feedback Table</h3>
-      <br />
-      <div className="identity-container">
-        <h3 htmlFor="state">Customer:</h3>
-        <select
-          id="state"
-          onChange={(e) => setSelectedState(e.target.value)}
-          value={selectedState}
-          className={`form-control ${
-            selectedState === "" ? "empty-field" : ""
-          } form-select form-select-md`}
-        >
-          <option value="both">Both</option>
-          <option value="internal">Internal</option>
-          <option value="external">External</option>
-        </select>
-      </div>
-
-      <button className="btn btn-primary p-1" onClick={handlePrint}>
+      <button
+        className="btn-primary px-0"
+        style={{ width: "60px", marginLeft: "50px", marginTop: "20px" }}
+        onClick={handlePrint}
+      >
         Print
       </button>
       <hr />

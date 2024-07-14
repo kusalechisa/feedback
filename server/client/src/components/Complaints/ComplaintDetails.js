@@ -46,8 +46,12 @@ const ComplaintDetails = ({ complaints }) => {
       <h3 className="text-success">Complaint Table</h3>
       <br />
       <div>
-        <button className="btn btn-primary" onClick={handlePrint}>
-          Print Table
+        <button
+          className="btn-primary px-0"
+          style={{ width: "60px", marginLeft: "50px", marginTop: "20px" }}
+          onClick={handlePrint}
+        >
+          Print
         </button>
         <hr />
         <div className="printable-table">
