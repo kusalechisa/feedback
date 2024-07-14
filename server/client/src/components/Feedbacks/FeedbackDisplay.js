@@ -6,11 +6,11 @@ import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 // Components
 import FeedbackDetails from "./FeedbackDetails.js";
 import Analyze from "./Analyze.js";
-// Home component
+
 const FeedbackDisplay = () => {
   const { feedbacks, dispatch } = useFeedbackContext();
   const { user } = useAuthContext();
-  const [displaygraph, setDisplayGraph] = useState("table");
+  const [displayGraph, setDisplayGraph] = useState("table");
 
   useEffect(() => {
     const fetchWorkouts = async () => {
@@ -41,11 +41,7 @@ const FeedbackDisplay = () => {
   };
 
   const handleButton = () => {
-    if (displaygraph === "graph") {
-      setDisplayGraph("table");
-    } else {
-      setDisplayGraph("graph");
-    }
+    setDisplayGraph(displayGraph === "graph" ? "table" : "graph");
   };
 
   return (
@@ -57,39 +53,41 @@ const FeedbackDisplay = () => {
     >
       <div className="rows">
         <br />
-        <h1 style={{ backgroundColor: "ButtonFace", marginTop: "10px" }}>
-          Complaint Dashboard
-        </h1>
+        <div
+          className="dashboard-header"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            position: "relative",
+            marginTop: "10px",
+          }}
+        >
+          <h1 style={{ backgroundColor: "ButtonFace" }}>Complaint Dashboard</h1>
+          <button
+            className={`graph-button ${
+              displayGraph === "graph" ? "active" : ""
+            }`}
+            onClick={handleButton}
+            style={{
+              backgroundColor: "#fffeee",
+              fontSize: "16px",
+              borderRadius: "7px",
+              fontFamily: "bold",
+              cursor: "pointer",
+              color: "black",
+              transition: "background-color 0.3s ease",
+              position: "absolute",
+              right: "100px",
+            }}
+          >
+            {displayGraph === "graph" ? "Show Table" : "Show Graph"}
+          </button>
+        </div>
         <br />
         <hr style={{ borderTop: "3px solid #ee55df", margin: "20px 0" }} />
 
-        <div className="container">
-          <div
-            style={{
-              textAlign: "center",
-            }}
-          >
-            <button
-              className={`graph-button ${
-                displaygraph === "graph" ? "active" : ""
-              }`}
-              onClick={() => handleButton()}
-              style={{
-                backgroundColor: "#fffeee",
-                fontSize: "32px",
-                borderRadius: "7px",
-                fontFamily: "bold",
-                cursor: "pointer",
-                color: "black",
-                transition: "background-color 0.3s ease",
-              }}
-            >
-              {displaygraph === "graph" ? "Show Table" : "Show Graph"}
-            </button>
-          </div>
-        </div>
-
-        {displaygraph === "graph" ? (
+        {displayGraph === "graph" ? (
           <div className="feedbacks">
             <br />
             <h1>Graph Based Rating</h1>

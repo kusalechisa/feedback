@@ -86,7 +86,7 @@ const FeedbackDetails = ({ feedbacks }) => {
     <>
       <br />
       <div className="feedback-summary rounded">
-        <h3>Total: {externalCount + internalCount}</h3>
+        <h3>Total Feedbacks: {externalCount + internalCount}</h3>
         <p>Internal Feedbacks: {internalCount}</p>
         <p>External Feedbacks: {externalCount}</p>
       </div>

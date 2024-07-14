@@ -173,7 +173,7 @@ const FeedBackForm = () => {
           </h3>
 
           <div className="search-containerfeed">
-            <FaSearch className="search" />
+            <FaSearch className={`search ${searchTerm ? "hidden" : ""}`} />
             <input
               type="text"
               placeholder="Search..."
