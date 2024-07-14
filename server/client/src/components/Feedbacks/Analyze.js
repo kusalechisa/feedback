@@ -223,7 +223,7 @@ const Analyze = () => {
       <br />
       <div className="row">
         <div className="col-md-12">
-          <h4>Total Feedbacks: {totalFeedbacks}</h4>
+          <h4>Total Ratings: {totalFeedbacks}</h4>
           <ul>
             {Object.entries(labelCounts).map(([label, count]) => (
               <li key={label}>

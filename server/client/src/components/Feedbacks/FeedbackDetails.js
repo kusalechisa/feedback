@@ -154,7 +154,7 @@ const FeedbackDetails = ({ feedbacks }) => {
       </div>
 
       <button className="btn btn-primary p-1" onClick={handlePrint}>
-        Print Table
+        Print
       </button>
       <hr />
       <div className="printable-table">
