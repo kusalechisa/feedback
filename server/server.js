@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan("tiny"));
 app.disable("x-powered-by");
-const port = 8080;
+const port = 7879;
 
 /** API routes */
 app.use("/api", router);

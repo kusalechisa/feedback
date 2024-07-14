@@ -40,8 +40,6 @@ export default function Profile() {
     <section
       className=" bg-image"
       style={{
-        backgroundImage:
-          "url('https://cdn.pixa bay.com/photo/2016/08/31/17/41/sunrise-1634197_1280.jpg')",
         backgroundColor: "rgb(255, 255, 255)",
         paddingTop: "10px",
         paddingBottom: "10px",

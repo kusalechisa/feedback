@@ -33,8 +33,7 @@ const UserLogin = () => {
     <section
       className=" bg-image"
       style={{
-        backgroundImage:
-          "url('https://c4.wallpa perflare.com/wallpaper/448/174/357/neon-4k-hd-best-for-desktop-wallpaper-preview.jpg')",
+          
         backgroundColor: "rgb(255, 255, 255)",
         backgroundSize: "cover",
         backgroundPosition: "center",

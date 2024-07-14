@@ -61,8 +61,6 @@ export default function ProfileUpdate() {
     <section
       className=" bg-image"
       style={{
-        backgroundImage:
-          "url('https://wallpap ers.com/images/featured/laptop-murjp1nk4lp1idlt.jpg')",
         backgroundColor: "rgb(255, 255, 255)",
         paddingTop: "17px",
         paddingBottom: "17px",

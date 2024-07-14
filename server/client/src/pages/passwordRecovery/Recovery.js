@@ -48,9 +48,7 @@ export default function Recovery() {
     <section
       className=""
       style={{
-        backgroundImage:
-          "url('https://www.mazai ndia.com/wallpapers/maxresdefault(26).jpg')",
-        backgroundColor: "rgb(255, 255, 255)",
+       backgroundColor: "rgb(255, 255, 255)",
         paddingTop: "33px",
         paddingBottom: "33px",
         backgroundPosition: "center",

@@ -48,9 +48,7 @@ export default function Reset() {
     <section
       className=" bg-image"
       style={{
-        backgroundImage:
-          "url('https://imag es6.alphacoders.com/133/thumb-1920-1338174.png')",
-        backgroundColor: "rgb(255, 255, 255)",
+         backgroundColor: "rgb(255, 255, 255)",
         paddingTop: "33px",
         paddingBottom: "33px",
         backgroundSize: "cover",

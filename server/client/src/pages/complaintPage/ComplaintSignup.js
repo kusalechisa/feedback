@@ -68,8 +68,7 @@ export default function ComplaintSignup() {
     <section
       className="bg-image d-flex justify-content-center align-items-center"
       style={{
-        backgroundImage:
-          "url('https://getwall papers.com/wallpaper/full/c/4/7/1305757-ultra-hd-4k-wallpapers-1080p-3840x2160-samsung.jpg')",
+      
         backgroundColor: "rgb(255, 255, 255)",
         backgroundSize: "cover",
         backgroundPosition: "center",
