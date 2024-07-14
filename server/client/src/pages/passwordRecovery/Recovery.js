@@ -45,72 +45,47 @@ export default function Recovery() {
   }
 
   return (
-    <section
-      className=""
-      style={{
-       backgroundColor: "rgb(255, 255, 255)",
-        paddingTop: "33px",
-        paddingBottom: "33px",
-        backgroundPosition: "center",
-        width: "100%",
-        height: "110vh",
-      }}
-    >
+    <section className="">
       <div
         className="container d-flex justify-content-center align-items-center"
         style={{
           backgroundColor: "rgb(239, 243, 244)", // Add a slight color tint with transparency
-
           border: "1px solid #1d1f1d",
           borderRadius: "8px",
           width: "350px",
-          marginTop: "8px",
-          height: "500px",
+          marginTop: "20px",
+          height: "400px",
         }}
       >
         <Toaster position="top-center" reverseOrder={false} />
 
         <div className="flex justify-center items-center">
-          <div className="glass">
-            <div className="title flex flex-col items-center">
-              <h3 className="font-bold">Recovery</h3>
-            </div>
-
-            <form className="pt-20" onSubmit={onSubmit}>
-              <div className="textbox flex flex-col items-center gap-6">
-                <div className="input text-center">
-                  <div className="py-4 text-sm text-left text-gray-500">
-                    <h5> Enter the 6-digit OTP sent to your email address.</h5>
-                  </div>
-                  <input
-                    onChange={(e) => setOTP(e.target.value)}
-                    className="textbox"
-                    type="text"
-                    placeholder="OTP"
-                  />
+          <form className="pt-10" onSubmit={onSubmit}>
+            <div className="textbox flex flex-col items-center gap-3">
+              <div className="input text-center">
+                <div className="py-4 text-sm text-left text-gray-500">
+                  <h5> Enter OTP sent to your email</h5>
                 </div>
-
-                <button
-                  className="btn btn-success d-flex justify-content-center align-items-center mx-auto my-4"
-                  type="submit"
-                >
-                  Verfy
-                </button>
+                <input
+                  onChange={(e) => setOTP(e.target.value)}
+                  className="textbox px-2"
+                  type="text"
+                  placeholder="OTP"
+                />
               </div>
-            </form>
 
-            <div className="text-center py-4">
-              <span className="text-gray-500">
-                Didn't get OTP?{" "}
-                <button
-                  onClick={resendOTP}
-                  className="btn-secondary rounded"
-                  style={{ backgroundColor: "Highlight" }}
-                >
-                  Get OTP
-                </button>
-              </span>
+              <button
+                className="btn btn-success d-flex justify-content-center align-items-center mx-auto my-4 btn:hover"
+                type="submit"
+              >
+                Verfy
+              </button>
             </div>
+          </form>
+          <div className="text-center py-2">
+            <button onClick={resendOTP} className="buttons  btn rounded">
+              Get OTP
+            </button>
           </div>
         </div>
       </div>

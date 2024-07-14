@@ -27,7 +27,7 @@ const LanguageProvider = ({ children }) => {
       "Share us your idea ",
       "Send Complaint",
       "Feedback System ",
-      "Complaint",
+      "Comment",
       "Anti-Corruption",
       "Complaint Admin",
       "Home",

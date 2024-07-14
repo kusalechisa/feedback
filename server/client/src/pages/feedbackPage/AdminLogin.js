@@ -15,6 +15,18 @@ const UserLogin = () => {
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
+    if (username === "") {
+      toast.info("username is empty");
+      return;
+    }
+    if (email === "") {
+      toast.info("email is empty");
+      return;
+    }
+    if (password === "") {
+      toast.error("password is empty");
+      return;
+    }
     toast.info("Please wait..."); // Show a toast message when the login process starts
 
     try {
@@ -33,7 +45,6 @@ const UserLogin = () => {
     <section
       className=" bg-image"
       style={{
-          
         backgroundColor: "rgb(255, 255, 255)",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -61,7 +72,7 @@ const UserLogin = () => {
                     }}
                   >
                     <div className="card-body py-4 vw-auto">
-                      <h4 style={{ textAlign:"center" }}>Admin</h4>
+                      <h4 style={{ textAlign: "center" }}>Admin</h4>
                       <div className="form-outline mb-3 mt-3 p-0 b-1rem">
                         <input
                           type="text"
@@ -103,7 +114,9 @@ const UserLogin = () => {
                         </div>
                         <hr />
                       </div>
-                      {isLoading && <p>please wait...</p>}
+                      {isLoading && (
+                        <p style={{ textAlign: "center" }}>loading...</p>
+                      )}
                       {!isLoading && (
                         <button className="btn btn-success btn-md btn-block">
                           Login

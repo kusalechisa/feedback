@@ -103,16 +103,16 @@
   width: 60px;
   height: 40px;
   color: #0d0d0c;
-  background-color: #ffffff;
+  background-color: #fefcfc;
   font-weight: bold;
   border-radius: 5px;
   padding-left: 4px;
   padding-top: 7px;
   text-decoration: none;
-   font-size: large;
-  
+  font-size: large;
 }
 
-.nav-links:hover{
-  background-color: bisque;
+.nav-links:hover {
+  background-color: #8b8a8a;
+  color: #ffffff;
 }

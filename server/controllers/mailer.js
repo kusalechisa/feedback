@@ -17,7 +17,7 @@ let transporter = nodemailer.createTransport(nodeConfig);
 let MailGenerator = new Mailgen({
   theme: "default",
   product: {
-    name: "Ministry Of Innovation And Technology",
+    name: "Complaint and Anti-Corruption Adminstartors",
     link: "https://mint.gov.et/?lang=en",
   },
 });
@@ -32,7 +32,7 @@ export const registerMail = async (req, res) => {
       intro:
         text ||
         `Dear ${username},\n\nThank you for signing up for our feedback system Admin. We're excited to have you on board!`,
-      outro: "\n\nBest regards,\nThe Feedback System Admin",
+      outro: "\n\nBest regards,\nThe Complaint and Anticorruption System Admin",
     },
   };
 
@@ -42,7 +42,7 @@ export const registerMail = async (req, res) => {
   let message = {
     from: ENV.EMAIL,
     to: userEmail,
-    subject: subject || "You Signed up Successfully",
+    subject: subject || "You Signedup Successfully",
     html: emailBody,
   };
 

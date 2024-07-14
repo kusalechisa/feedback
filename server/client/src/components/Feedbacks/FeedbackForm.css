@@ -1,29 +1,26 @@
-
 .generalfeed {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-
-  padding: 5px;
-  padding-top: 10px;
-  height: 135vh;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .containerfeed {
   background-color: rgb(239, 243, 244);
   border: 2px solid grey;
-  padding-left: 5%;
-  padding-right: 5%;
   border-radius: 5px;
+  padding: 5px;
   font-size: 20px;
   font-weight: bold;
 }
 
 .h3feed {
-  margin-top: 10px;
-  color: #eb7609;
+  margin-top: 20px;
+  color: #000000;
   border-radius: 5px;
   text-align: center;
+  font-weight: bold;
 }
 .form-Sectorfeed {
   margin-bottom: 5px;
@@ -108,14 +105,10 @@
   }
 }
 
-.search-containerfeed {
-  position: relative;
-  margin: 20px 0;
-}
-
 .search {
-  position: absolute;
-  left: 10px;
+  position: relative;
+  top: 90px;
+  left: 330px;
   bottom: 25px;
   z-index: 10;
   color: #ccc;
@@ -124,28 +117,30 @@
 
 .search-resultsfeed {
   position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  max-height: 250px;
+  top: 160px;
+  left: 0px;
+  right: 0px;
+  max-height: 380px;
   overflow-y: auto;
   background-color: #ffffff;
   border: 1px solid #ccc;
- 
 }
-
 .search-result-itemfeed {
   padding: 5px;
   cursor: pointer;
 }
-
 .search-result-itemfeed:hover {
   background-color: #bcbdbf;
 }
 .form-search {
   position: relative;
-  width: 200px;
+  top: 90px;
+  width: 130px;
   border-radius: 10px;
-  padding-left: 40px;
+  left: 215px;
+
   outline: none;
+}
+.identity {
+  padding-left: 35px;
 }

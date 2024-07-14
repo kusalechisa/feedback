@@ -50,7 +50,11 @@ export default function AdminLogin() {
         <Toaster position="top-center" reverseOrder={false} />
         <div className="d-flex justify-content-center align-items-center">
           <div className="glass py-2">
-            <div className="text-center">
+            <div className="text-center my-2">
+              <br />
+              <br />
+              <br />
+              <br />
               <span className="py-3 lead text-gray-500">Enter Username</span>
             </div>
             <form className="py-3" onSubmit={formik.handleSubmit}>

@@ -155,7 +155,19 @@ const Navbar = () => {
                       ))}
                     </select>
                   </div>
-
+                  {user || admin ? null : (
+                    <NavLink
+                      className={`nav-links ${
+                        activeLink === "about" ? "active" : ""
+                      }`}
+                      to="/adminLogin"
+                      onClick={() => handleNavLinkClick("about")}
+                    >
+                      {labelLanguage[selectedLanguage]
+                        ? labelLanguage[selectedLanguage][47]
+                        : ""}
+                    </NavLink>
+                  )}
                   <li className="nav-item">
                     <NavLink
                       className={`nav-link ${
@@ -204,17 +216,6 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-        {user || admin ? (
-       null
-        ) :    <NavLink
-            className={`nav-links ${activeLink === "about" ? "active" : ""}`}
-            to="/adminLogin"
-            onClick={() => handleNavLinkClick("about")}
-          >
-            {labelLanguage[selectedLanguage]
-              ? labelLanguage[selectedLanguage][47]
-              : ""}
-          </NavLink>}
       </nav>
     </>
   );

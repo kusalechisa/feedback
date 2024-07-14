@@ -195,19 +195,6 @@ const FeedBackForm = () => {
               </ul>
             )}
           </div>
-          <div
-            style={{
-              textAlign: "center",
-              fontSize: "27px",
-              marginBottom: "15px",
-            }}
-          >
-            {" "}
-            {labelLanguage[selectedLanguage]
-              ? labelLanguage[selectedLanguage][42]
-              : ""}
-          </div>
-
           <div className="identity">
             <label htmlFor="identity">
               {labelLanguage[selectedLanguage]
@@ -430,6 +417,18 @@ const FeedBackForm = () => {
                 }
               />
             </div>
+          </div>
+          <div
+            style={{
+              marginTop: "20px",
+              fontSize: "22px",
+              marginBottom: "10px",
+            }}
+          >
+            {" "}
+            {labelLanguage[selectedLanguage]
+              ? labelLanguage[selectedLanguage][42]
+              : ""}
           </div>
           <div className="form-MainIssuefeed">
             <label htmlFor="mainissue">
