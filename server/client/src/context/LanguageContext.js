@@ -27,7 +27,7 @@ const LanguageProvider = ({ children }) => {
       "Share us your idea ",
       "Send Complaint",
       "Feedback System ",
-      "Comment",
+      "Complaint",
       "Anti-Corruption",
       "Complaint Admin",
       "Home",
@@ -55,6 +55,10 @@ const LanguageProvider = ({ children }) => {
       "main issue",
       "example@gmail.com",
       "Login",
+      "Show password",
+      "Admin",
+      "Hide password",
+      "Forgot password",
     ],
     Am: [
       "ዘርፍ:",
@@ -105,6 +109,10 @@ const LanguageProvider = ({ children }) => {
       "ዋና ጉዳይ",
       "example@gmail.com",
       "ግባ",
+      "የይለፍ ቃል አሳይ",
+      "አስተዳዳሪ",
+      "የይለፍ ቃል ደብቅ",
+      "የይለፍ ቃል ረሳኽው",
     ],
   };
 

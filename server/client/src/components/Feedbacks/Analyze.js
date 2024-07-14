@@ -137,6 +137,20 @@ const Analyze = () => {
     >
       <br />
       <br />
+      <div className="row">
+        <div className="col-md-12">
+          <h4>Total Ratings: {totalFeedbacks}</h4>
+          <ul>
+            {Object.entries(labelCounts).map(([label, count]) => (
+              <li key={label}>
+                {label}: {count}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <br />
+      <br />
       <br />
       <div className="row">
         <div className="col-md-6 " style={{ minHeight: "400px" }}>
@@ -220,20 +234,6 @@ const Analyze = () => {
           </div>
         </div>
       </div>
-      <br />
-      <div className="row">
-        <div className="col-md-12">
-          <h4>Total Ratings: {totalFeedbacks}</h4>
-          <ul>
-            {Object.entries(labelCounts).map(([label, count]) => (
-              <li key={label}>
-                {label}: {count}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <br />
     </div>
   );
 };

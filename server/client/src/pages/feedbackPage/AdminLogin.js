@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useLogin } from "../../hooks/useLogin";
 import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
+import { LanguageContext } from "../../context/LanguageContext";
 
 const UserLogin = () => {
   const [username, setUsername] = useState("");
@@ -12,7 +13,7 @@ const UserLogin = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const { userlogin, error, isLoading } = useLogin();
-
+  const { selectedLanguage, labelLanguage } = useContext(LanguageContext);
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     if (username === "") {
@@ -72,7 +73,12 @@ const UserLogin = () => {
                     }}
                   >
                     <div className="card-body py-4 vw-auto">
-                      <h4 style={{ textAlign: "center" }}>Admin</h4>
+                      <h4 style={{ textAlign: "center" }}>
+                        {" "}
+                        {labelLanguage[selectedLanguage]
+                          ? labelLanguage[selectedLanguage][49]
+                          : ""}
+                      </h4>
                       <div className="form-outline mb-3 mt-3 p-0 b-1rem">
                         <input
                           type="text"
@@ -109,7 +115,21 @@ const UserLogin = () => {
                             type="button"
                             onClick={togglePasswordVisibility}
                           >
-                            {showPassword ? "Hide Password" : "Show Password"}
+                            {showPassword ? (
+                              <spa>
+                                {" "}
+                                {labelLanguage[selectedLanguage]
+                                  ? labelLanguage[selectedLanguage][50]
+                                  : ""}
+                              </spa>
+                            ) : (
+                              <span>
+                                {" "}
+                                {labelLanguage[selectedLanguage]
+                                  ? labelLanguage[selectedLanguage][48]
+                                  : ""}
+                              </span>
+                            )}
                           </button>
                         </div>
                         <hr />
@@ -119,7 +139,9 @@ const UserLogin = () => {
                       )}
                       {!isLoading && (
                         <button className="btn btn-success btn-md btn-block">
-                          Login
+                          {labelLanguage[selectedLanguage]
+                            ? labelLanguage[selectedLanguage][47]
+                            : ""}
                         </button>
                       )}
 
@@ -136,7 +158,10 @@ const UserLogin = () => {
                         className="btn  text-info forgot ms-2"
                         to="/usernamelogin"
                       >
-                        Forgot password?
+                        {labelLanguage[selectedLanguage]
+                          ? labelLanguage[selectedLanguage][51]
+                          : ""}
+                        ?
                       </Link>
                     </div>
                   </div>

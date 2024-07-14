@@ -115,6 +115,17 @@ select {
 
 .selectors-container {
   display: flex;
-  gap: 20px; /* Adjust the gap as needed */
-  align-items: flex-start; /* Aligns items at the start of the container */
+  gap: 20px;  
+  align-items: flex-start;  
+  background-color: #d6d1d1;
+  padding: 5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.feedback-summary {
+  margin-left: 50px;
+  margin-top: 20px;
+  width: max-content;
+  padding: 5px;
+  font-weight: bold;
 }

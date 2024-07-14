@@ -108,7 +108,7 @@
 .search {
   position: relative;
   top: 90px;
-  left: 330px;
+  left: 320px;
   bottom: 25px;
   z-index: 10;
   color: #ccc;
@@ -135,7 +135,7 @@
 .form-search {
   position: relative;
   top: 90px;
-  width: 130px;
+  width: 110px;
   border-radius: 10px;
   left: 215px;
 

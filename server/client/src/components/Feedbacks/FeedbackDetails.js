@@ -57,6 +57,18 @@ const FeedbackDetails = ({ feedbacks }) => {
     return filtered;
   }, [feedbacks, selectedSector, selectedOffice, selectedState]);
 
+  const internalCount = useMemo(() => {
+    return feedbacks.filter(
+      (feedback) => feedback.identity?.toLowerCase() === "internal"
+    ).length;
+  }, [feedbacks]);
+
+  const externalCount = useMemo(() => {
+    return feedbacks.filter(
+      (feedback) => feedback.identity?.toLowerCase() === "external"
+    ).length;
+  }, [feedbacks]);
+
   const handlePrint = () => {
     window.print();
   };
@@ -73,10 +85,16 @@ const FeedbackDetails = ({ feedbacks }) => {
   return (
     <>
       <br />
+      <div className="feedback-summary rounded">
+        <h3>Total: {externalCount + internalCount}</h3>
+        <p>Internal Feedbacks: {internalCount}</p>
+        <p>External Feedbacks: {externalCount}</p>
+      </div>
       <br />
-      <div className="selectors-container">
+
+      <div className="selectors-container rounded">
         <div
-          className="selectorclass rounded px-3 mx-5"
+          className="selectorclass rounded col-5 px-3 mx-5"
           style={{ backgroundColor: "#ada9a8" }}
         >
           <div>
@@ -136,7 +154,7 @@ const FeedbackDetails = ({ feedbacks }) => {
           <br />
           <br />
         </div>
-        <div className="identity-container">
+        <div className="identity-container col-5 px-4 mx-5">
           <h3 htmlFor="state">Customer:</h3>
           <select
             id="state"
@@ -152,6 +170,9 @@ const FeedbackDetails = ({ feedbacks }) => {
           </select>
         </div>
       </div>
+      <br />
+      <br />
+
       <button
         className="btn-primary px-0"
         style={{ width: "60px", marginLeft: "50px", marginTop: "20px" }}
