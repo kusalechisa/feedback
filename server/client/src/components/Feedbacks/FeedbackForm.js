@@ -42,6 +42,7 @@ const FeedBackForm = () => {
     }
     if (issue === "") {
       setShowError(true);
+      return;
     }
 
     const feedback = {

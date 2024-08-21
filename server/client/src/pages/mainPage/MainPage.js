@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react";
+import QRCode from "qrcode.react"; // Import the QRCode component
 import "./MainPage.css";
 import Footer from "../../components/footer/Footer";
 import { LanguageContext } from "../../context/LanguageContext";
@@ -9,7 +10,6 @@ import image4 from "../../assets/img4.jpg";
 import image6 from "../../assets/img6.jpg";
 import image7 from "../../assets/img7.jpg";
 import image8 from "../../assets/img8.jpg";
-
 import image12 from "../../assets/img12.png";
 
 function MainPage() {
@@ -24,12 +24,10 @@ function MainPage() {
       image0,
       image1,
       image2,
-
       image4,
       image6,
       image7,
       image8,
-
       image12,
     ];
 
@@ -69,6 +67,28 @@ function MainPage() {
             ? labelLanguage[selectedLanguage][29]
             : ""}
         </h3>
+
+        {/* Add the QR Code with background here */}
+        <div
+          style={{
+            marginTop: "20px",
+            textAlign: "center",
+          }}
+        >
+          <div
+            style={{
+              display: "inline-block",
+              backgroundColor: "#ffffff", // Background color
+              padding: "15px", // Padding around the QR code
+              borderRadius: "10px", // Rounded corners
+              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Optional shadow for depth
+            }}
+          >
+            <div>Scan here to get link.</div>
+            <QRCode value="https://feedback-website.onrender.com/" />
+          </div>
+        </div>
+
         <Footer />
       </div>
     </section>
