@@ -69,24 +69,11 @@ function MainPage() {
         </h3>
 
         {/* Add the QR Code with background here */}
-        <div
-          style={{
-            marginTop: "20px",
-            textAlign: "center",
-          }}
-        >
-          <div
-            style={{
-              display: "inline-block",
-              backgroundColor: "#ffffff", // Background color
-              padding: "15px", // Padding around the QR code
-              borderRadius: "10px", // Rounded corners
-              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Optional shadow for depth
-            }}
-          >
-            <div>Scan here to get link.</div>
-            <QRCode value="https://feedback-website.onrender.com/" />
+        <div className="qr-code-container">
+          <div style={{ fontWeight: "bold", color:"blue", marginBottom:"10px" }}>
+            Scan Website Link
           </div>
+          <QRCode value={window.location.href} />
         </div>
 
         <Footer />

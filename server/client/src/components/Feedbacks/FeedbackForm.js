@@ -450,6 +450,13 @@ const FeedBackForm = () => {
                 }
               />
             </div>
+            {issue === "" && showError && (
+              <div className="text-dangerfeed">
+                {labelLanguage[selectedLanguage]
+                  ? labelLanguage[selectedLanguage][52]
+                  : ""}
+              </div>
+            )}
           </div>
 
           <div className="form-Commentfeed">

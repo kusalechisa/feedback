@@ -10,8 +10,31 @@
   width: 85%;
   margin: 0 auto;
 }
-  
-.bg-images {
-position: relative;
 
+.bg-images {
+  position: relative;
+}
+/* Base styling for the QR code */
+.qr-code-container {
+  display: inline-block;
+  background-color: #ffffff; /* Background color */
+  padding: 15px; /* Padding around the QR code */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+  position: absolute;
+  top: 60px;
+  right: 15px;
+  max-width: 220px;
+  max-height: 230px;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .qr-code-container {
+    position: fixed; /* Change to fixed for mobile devices */
+    bottom: 15px; /* Place the QR code at the bottom */
+    right: 15px; /* Align it to the right */
+    max-width: 220px;
+    max-height: 200px;
+  }
 }
