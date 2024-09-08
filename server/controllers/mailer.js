@@ -18,7 +18,7 @@ let MailGenerator = new Mailgen({
   theme: "default",
   product: {
     name: "Complaint and Anti-Corruption Adminstartors",
-    link: "https://mint.gov.et/?lang=en",
+    link: "http://mint.gov.et/?lang=en",
   },
 });
 

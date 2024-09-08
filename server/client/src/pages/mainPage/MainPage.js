@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useRef } from "react";
-import QRCode from "qrcode.react"; // Import the QRCode component
+import React, { useContext, useEffect, useRef, useState } from "react";
+import QRCode from "qrcode.react";
 import "./MainPage.css";
 import Footer from "../../components/footer/Footer";
 import { LanguageContext } from "../../context/LanguageContext";
@@ -15,6 +15,7 @@ import image12 from "../../assets/img12.png";
 function MainPage() {
   const { selectedLanguage, labelLanguage } = useContext(LanguageContext);
   const sectionRef = useRef(null);
+  const [showQRCode, setShowQRCode] = useState(true); // State to manage QR code visibility
 
   useEffect(() => {
     const sectionElement = sectionRef.current;
@@ -55,6 +56,22 @@ function MainPage() {
       }}
       ref={sectionRef}
     >
+      {/* Button to toggle QR code visibility */}
+      <button
+        onClick={() => setShowQRCode(!showQRCode)}
+        style={{
+          margin: "10px",
+          padding: "10px 20px",
+          border: "none",
+          borderRadius: "5px",
+          backgroundColor: "blue",
+          color: "white",
+          cursor: "pointer",
+        }}
+      >
+        {showQRCode ? "Hide QR Code" : "Show QR Code"}
+      </button>
+
       <div className="" style={{ paddingTop: "50px" }}>
         <h2 className="title">
           {labelLanguage[selectedLanguage]
@@ -68,13 +85,21 @@ function MainPage() {
             : ""}
         </h3>
 
-        {/* Add the QR Code with background here */}
-        <div className="qr-code-container">
-          <div style={{ fontWeight: "bold", color:"blue", marginBottom:"10px" }}>
-            Scan Website Link
+        {/* Conditionally render QR Code */}
+        {showQRCode && (
+          <div className="qr-code-container">
+            <div
+              style={{
+                fontWeight: "bold",
+                color: "blue",
+                marginBottom: "10px",
+              }}
+            >
+              Scan Website Link
+            </div>
+            <QRCode value={window.location.href} />
           </div>
-          <QRCode value={window.location.href} />
-        </div>
+        )}
 
         <Footer />
       </div>
