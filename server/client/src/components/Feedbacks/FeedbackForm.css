@@ -97,7 +97,7 @@
 .search {
   position: relative;
   top: 90px;
-  left: 320px;
+  left: 285px;
   z-index: 10;
   color: #ccc;
   margin-right: 5px;
@@ -131,11 +131,11 @@
   position: relative;
   top: 90px;
   width: 110px;
-  left: 215px;
+  left: 180px;
   border-radius: 10px;
   outline: none;
 }
 
 .identity {
-  padding-left: 35px;
+  padding-left: 2px;
 }
