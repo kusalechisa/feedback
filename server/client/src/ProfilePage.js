@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./ProfilePage.css";
 import profilePic from "./assets/profile-pic-2.jpg";
 import profilePicKeng from "./assets/kengita.png";
 import profilePicTedy from "./assets/tedy.jpg";
 import profilePiclem from "./assets/image.png";
-
+import { LanguageContext } from "./context/LanguageContext";
 const ProfilePage = () => {
+   const { selectedLanguage, labelLanguage } = useContext(LanguageContext);
   const users = [
     {
       name: "Yaduma Lechisa",
@@ -41,41 +42,68 @@ const ProfilePage = () => {
     <div className="container mt-5">
       {/* Ministry of Innovation Section */}
       <div className="mb-5">
-        <h1 className="display-4">Ministry of Innovation And Technology</h1>
+        <h1 className="display-4">
+          {" "}
+          {labelLanguage[selectedLanguage]
+            ? labelLanguage[selectedLanguage][54]
+            : ""}
+        </h1>
         <p className="lead">
-          At the Ministry of Innovation and Technology (MINT), we believe in the
-          power of your voice to shape our future. Our Feedback and Corruption
-          Suggestion System is a key tool designed to:
+          {" "}
+          {labelLanguage[selectedLanguage]
+            ? labelLanguage[selectedLanguage][55]
+            : ""}
         </p>
-        <h5>1. Improve Service Quality</h5>
+        <h5>
+          {" "}
+          {labelLanguage[selectedLanguage]
+            ? labelLanguage[selectedLanguage][56]
+            : ""}
+        </h5>
         <p>
-          After interacting with our services, your feedback helps us
-          continuously refine and improve our performance. By sharing your
-          experience, you enable us to better serve you and the community.
+          {" "}
+          {labelLanguage[selectedLanguage]
+            ? labelLanguage[selectedLanguage][57]
+            : ""}
         </p>
-        <h5>2. Ensure Transparency and Integrity</h5>
+        <h5>
+          {" "}
+          {labelLanguage[selectedLanguage]
+            ? labelLanguage[selectedLanguage][58]
+            : ""}
+        </h5>
         <p>
-          If you witness any form of corruption or unethical behavior, your
-          suggestions and reports are invaluable in promoting accountability
-          within MINT. We are committed to maintaining high ethical standards,
-          and your input is essential in safeguarding the integrity of our
-          operations.
+          {" "}
+          {labelLanguage[selectedLanguage]
+            ? labelLanguage[selectedLanguage][59]
+            : ""}
         </p>
-        <h5>3. Foster Trust and Collaboration</h5>
+        <h5>
+          {" "}
+          {labelLanguage[selectedLanguage]
+            ? labelLanguage[selectedLanguage][60]
+            : ""}
+        </h5>
         <p>
-          By participating in this system, you contribute to a culture of
-          openness and trust between MINT and the public. Your feedback and
-          suggestions help us work together to build a more transparent and
-          efficient organization.
+          {" "}
+          {labelLanguage[selectedLanguage]
+            ? labelLanguage[selectedLanguage][61]
+            : ""}
         </p>
         <h6>
-          Together, we can create a better, more accountable future for
-          Ethiopia’s technological advancement. Your voice matters—share your
-          feedback and suggestions today!
+          {" "}
+          {labelLanguage[selectedLanguage]
+            ? labelLanguage[selectedLanguage][62]
+            : ""}
         </h6>
       </div>
 
-      <h2 className="text-center mb-4">System Developer Team</h2>
+      <h2 className="text-center mb-4">
+        {" "}
+        {labelLanguage[selectedLanguage]
+          ? labelLanguage[selectedLanguage][63]
+          : ""}
+      </h2>
 
       {/* User Profiles Section */}
       <div className="row">

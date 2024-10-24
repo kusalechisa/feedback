@@ -61,6 +61,29 @@ const LanguageProvider = ({ children }) => {
       "Forgot password",
       "Issue is required",
       "About",
+      "Ministry of Innovation And Technology",
+      `     At the Ministry of Innovation and Technology (MINT), we believe in the
+          power of your voice to shape our future. Our Feedback and Corruption
+          Suggestion System is a key tool designed to:`,
+      "1. Improve Service Quality",
+      ` After interacting with our services, your feedback helps us
+          continuously refine and improve our performance. By sharing your
+          experience, you enable us to better serve you and the community.`,
+      "2. Ensure Transparency and Integrity",
+      `   If you witness any form of corruption or unethical behavior, your
+          suggestions and reports are invaluable in promoting accountability
+          within MINT. We are committed to maintaining high ethical standards,
+          and your input is essential in safeguarding the integrity of our
+          operations.`,
+      "3. Foster Trust and Collaboration",
+      `    By participating in this system, you contribute to a culture of
+          openness and trust between MINT and the public. Your feedback and
+          suggestions help us work together to build a more transparent and
+          efficient organization.`,
+      `  Together, we can create a better, more accountable future for
+          Ethiopia’s technological advancement. Your voice matters—share your
+          feedback and suggestions today!`,
+      "System's Developer Team",
     ],
     Am: [
       "ዘርፍ:",
@@ -117,6 +140,29 @@ const LanguageProvider = ({ children }) => {
       "የይለፍ ቃል ረሳኽው",
       "ዋናው ጉዳይ ባዶ ነው",
       "ስለ ኩባንያ",
+      "የኢኖቬሽን እና ቴክኖሎጂ ሚኒስቴር",
+      `በኢኖቬሽን እና ቴክኖሎጂ ሚኒስቴር (MINT) እናምናለን
+ የወደፊት ሕይወታችንን ለመቅረጽ የድምፅዎ ኃይል። የእኛ ግብረመልስ እና ሙስና
+ የአስተያየት ጥቆማ ስርዓት የሚከተሉትን ለማድረግ የተነደፈ ቁልፍ መሳሪያ ነው፡-`,
+      "1. የአገልግሎት ጥራትን ማሻሻል",
+      `ከአገልግሎታችን ጋር ከተገናኘን በኋላ፣ የእርስዎ አስተያየት ይረዳናል።
+ ያለማቋረጥ ማጣራት እና አፈፃፀማችንን ማሻሻል። ሼር በማድረግ
+ ልምድ፣ እርስዎን እና ማህበረሰቡን በተሻለ ሁኔታ እንድናገለግል ያስችሉናል።`,
+      "2. ግልጽነትን እና ታማኝነትን ያረጋግጡ",
+      `ማንኛውንም ዓይነት ሙስና ወይም ሥነ ምግባር የጎደለው ድርጊት ከተመለከቱ፣ የእርስዎ
+ ጥቆማዎች እና ሪፖርቶች ተጠያቂነትን በማስተዋወቅ ረገድ ጠቃሚ ናቸው
+ በMINT ውስጥ ከፍተኛ የሥነ ምግባር ደረጃዎችን ለመጠበቅ ቆርጠናል,
+ እና የእርስዎ ግብአት የእኛን ታማኝነት ለመጠበቅ አስፈላጊ ነው።
+ ስራዎች.`,
+      "3. መተማመን እና ትብብርን ያሳድጋል",
+      `በዚህ ስርዓት ውስጥ በመሳተፍ ለባህል አስተዋፅዖ ያደርጋሉ
+ በMINT እና በህዝብ መካከል ግልጽነት እና መተማመን. የእርስዎ አስተያየት እና
+ የጥቆማ አስተያየቶች የበለጠ ግልጽነት ያለው እና ለመገንባት አብረን እንድንሰራ ይረዱናል።
+ ውጤታማ ድርጅት.`,
+      `በጋራ፣ ለወደፊት የተሻለ፣ የበለጠ ተጠያቂነት መፍጠር እንችላለን
+ የኢትዮጵያ የቴክኖሎጂ እድገት። ድምጽዎ አስፈላጊ ነው - ያጋሩ
+ አስተያየቶች እና አስተያየቶች ዛሬ!`,
+      "የሲስተሙ ደቨሎፐር ቡድን",
     ],
   };
 
