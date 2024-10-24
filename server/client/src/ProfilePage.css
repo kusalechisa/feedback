@@ -1,0 +1,156 @@
+.container {
+  max-width: 1200px; /* Set a maximum width for the container */
+  margin: auto; /* Center the container */
+  padding: 100px; /* Add padding for spacing */
+}
+
+h1, h2, h3, h4 {
+  color: #007bff; /* Set a primary color for headings */
+  transition: color 0.3s ease; /* Transition for color change */
+}
+
+h1.display-4 {
+  margin-bottom: 30px; /* Add margin below the main title */
+  font-size: 2.5rem; /* Adjust font size for display */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+}
+
+h3 {
+  margin-top: 20px; /* Add margin above section titles */
+  position: relative; /* Enable positioning for underline effect */
+}
+
+h3::after {
+  content: ""; /* Create an underline effect */
+  display: block; /* Block element */
+  width: 50%; /* Width of the underline */
+  height: 4px; /* Height of the underline */
+  background-color: #007bff; /* Underline color */
+  transition: width 0.4s ease; /* Animation for the underline */
+  position: absolute; /* Position the underline */
+  left: 50%; /* Center the underline */
+  bottom: -10px; /* Position below the heading */
+  transform: translateX(-50%); /* Center the underline */
+}
+
+h3:hover::after {
+  width: 100%; /* Expand underline on hover */
+}
+
+h2 {
+  margin: 40px 0; /* Add margin above and below the team title */
+  font-size: 1.75rem; /* Adjust font size for section title */
+}
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition for hover effects */
+  border-radius: 10px; /* Rounded corners for cards */
+  overflow: hidden; /* Hide overflow */
+  position: relative; /* Position for background animation */
+  background-color: #fff; /* Background color for the card */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+  background-color: #f8f9fa; /* Light background on hover */
+}
+
+.card-header {
+  background-color: #007bff; /* Card header background color */
+  position: relative; /* Position for background animation */
+  overflow: hidden; /* Hide overflow */
+  padding: 10px; /* Add padding */
+}
+
+.card-header h5 {
+  margin: 0; /* Remove margin for header */
+}
+
+.card-body {
+  padding: 20px; /* Add padding to card body */
+  transition: background-color 0.3s ease; /* Smooth transition for body background */
+}
+
+.card-body:hover {
+  background-color: rgba(0, 123, 255, 0.1); /* Light background on body hover */
+}
+
+.card-body img {
+  border-radius: 50%; /* Make the profile image circular */
+  border: 3px solid #007bff; /* Border for the profile image */
+  transition: transform 0.3s ease, border-color 0.3s ease; /* Transition for image scaling and border color */
+}
+
+.card-body img:hover {
+  transform: scale(1.1); /* Scale image on hover */
+  border-color: #0056b3; /* Darker border on hover */
+}
+
+.text-secondary {
+  color: #6c757d; /* Secondary text color */
+}
+
+.text-warning {
+  color: #ffc107; /* Warning text color */
+}
+
+.text-muted {
+  color: #6c757d; /* Muted text color */
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem; /* Add bottom margin for spacing */
+}
+
+@media (max-width: 768px) {
+  .card-body img {
+    width: 80px; /* Reduce image size on smaller screens */
+    height: 80px;
+  }
+
+  .card {
+    margin: 10px; /* Add margin for smaller screens */
+  }
+}
+
+
+.text-secondary {
+  color: #6c757d; /* Secondary text color */
+}
+
+.text-warning {
+  color: #ffc107; /* Warning text color */
+}
+
+.text-muted {
+  color: #6c757d; /* Muted text color */
+}
+
+.lead {
+  font-size: 1.25rem; /* Larger font for lead text */
+  line-height: 1.6; /* Line height for readability */
+}
+
+.mb-5 {
+  margin-bottom: 3rem; /* Add bottom margin for spacing */
+}
+
+.mt-5 {
+  margin-top: 3rem; /* Add top margin for spacing */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .card-body img {
+    width: 80px; /* Reduce image size on smaller screens */
+    height: 80px;
+  }
+
+  h1.display-4 {
+    font-size: 2rem; /* Adjust font size for smaller screens */
+  }
+
+  h2 {
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
+  }
+}

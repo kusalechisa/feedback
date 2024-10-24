@@ -211,6 +211,20 @@ const Navbar = () => {
                         : ""}
                     </NavLink>
                   </li>
+                  <li className="nav-item">
+                    <NavLink
+                      className={`nav-link ${
+                        activeLink === "abouts" ? "active" : ""
+                      }`}
+                      to="/ProfilePage"
+                      onClick={() => handleNavLinkClick("abouts")}
+                    >
+                      {" "}
+                      {labelLanguage[selectedLanguage]
+                        ? labelLanguage[selectedLanguage][53]
+                        : ""}
+                    </NavLink>
+                  </li>
                 </>
               )}
             </ul>

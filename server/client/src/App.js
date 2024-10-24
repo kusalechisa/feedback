@@ -30,6 +30,7 @@ import { useAuthContext } from "./hooks/useAuthContext.js";
 import { useAuthContextC } from "./hooks/useAuthContextC.js";
 import ComplaintForm from "./components/Complaints/ComplaintForm.js";
 import ComplaintDisplay from "./components/Complaints/ComplaintDisplay.js";
+import ProfilePage from "./ProfilePage.js"
 
 function App() {
   const { user } = useAuthContext();
@@ -105,6 +106,7 @@ function App() {
             <Route path="/givefeedback" element={<GiveFeedback />} />
             <Route path="/complaintform" element={<ComplaintForm />} />
             <Route path="/analyze" element={<Analyze />} />
+            <Route path="/ProfilePage" element={<ProfilePage />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>

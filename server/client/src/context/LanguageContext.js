@@ -60,6 +60,7 @@ const LanguageProvider = ({ children }) => {
       "Hide password",
       "Forgot password",
       "Issue is required",
+      "About",
     ],
     Am: [
       "ዘርፍ:",
@@ -115,6 +116,7 @@ const LanguageProvider = ({ children }) => {
       "የይለፍ ቃል ደብቅ",
       "የይለፍ ቃል ረሳኽው",
       "ዋናው ጉዳይ ባዶ ነው",
+      "ስለ ኩባንያ",
     ],
   };
 
