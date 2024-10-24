@@ -45,7 +45,7 @@ const Navbar = () => {
     { value: "dashboard", label: "Dashboard" },
     {
       value: "profile",
-      label: <div>Update</div>,
+      label: <div>Update profile</div>,
     },
     {
       value: "signup",

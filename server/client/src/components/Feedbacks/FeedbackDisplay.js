@@ -63,7 +63,7 @@ const FeedbackDisplay = () => {
             marginTop: "10px",
           }}
         >
-          <h1 style={{ backgroundColor: "ButtonFace" }}>Complaint Dashboard</h1>
+          <h1 style={{ backgroundColor: "ButtonFace" }}>Feedback Dashboard</h1>
           <button
             className={`graph-button ${
               displayGraph === "graph" ? "active" : ""

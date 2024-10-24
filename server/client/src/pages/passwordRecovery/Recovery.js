@@ -49,7 +49,7 @@ export default function Recovery() {
       <div
         className="container d-flex justify-content-center align-items-center"
         style={{
-          backgroundColor: "rgb(239, 243, 244)", // Add a slight color tint with transparency
+          backgroundColor: "rgb(239, 243, 244)",  
           border: "1px solid #1d1f1d",
           borderRadius: "8px",
           width: "350px",
