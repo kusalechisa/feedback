@@ -61,11 +61,11 @@ function MainPage() {
         onClick={() => setShowQRCode(!showQRCode)}
         style={{
           margin: "10px",
-          padding: "10px 20px",
+          padding: "5px 10px",
           border: "none",
           borderRadius: "5px",
-          backgroundColor: "blue",
-          color: "white",
+          backgroundColor: "green",
+          color: "#fff000",
           cursor: "pointer",
         }}
       >
@@ -91,7 +91,7 @@ function MainPage() {
             <div
               style={{
                 fontWeight: "bold",
-                color: "blue",
+                color: "#00ffee",
                 marginBottom: "10px",
               }}
             >
