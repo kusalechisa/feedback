@@ -1,11 +1,11 @@
 .container {
   max-width: 1200px; /* Set a maximum width for the container */
   margin: auto; /* Center the container */
-  padding: 100px; /* Add padding for spacing */
+  padding: 5%; /* Add padding for spacing */
 }
 
-h1, h2, h3, h4 {
-  color: #007bff; /* Set a primary color for headings */
+h1, h5, h3, h6 {
+  color: #00eaff; /* Set a primary color for headings */
   transition: color 0.3s ease; /* Transition for color change */
 }
 
@@ -19,21 +19,9 @@ h3 {
   margin-top: 20px; /* Add margin above section titles */
   position: relative; /* Enable positioning for underline effect */
 }
+ 
 
-h3::after {
-  content: ""; /* Create an underline effect */
-  display: block; /* Block element */
-  width: 50%; /* Width of the underline */
-  height: 4px; /* Height of the underline */
-  background-color: #007bff; /* Underline color */
-  transition: width 0.4s ease; /* Animation for the underline */
-  position: absolute; /* Position the underline */
-  left: 50%; /* Center the underline */
-  bottom: -10px; /* Position below the heading */
-  transform: translateX(-50%); /* Center the underline */
-}
-
-h3:hover::after {
+h5:hover::after {
   width: 100%; /* Expand underline on hover */
 }
 
@@ -56,7 +44,7 @@ h2 {
 }
 
 .card-header {
-  background-color: #007bff; /* Card header background color */
+  background-color: #dde8f3; /* Card header background color */
   position: relative; /* Position for background animation */
   overflow: hidden; /* Hide overflow */
   padding: 10px; /* Add padding */

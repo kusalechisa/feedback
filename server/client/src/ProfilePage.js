@@ -47,13 +47,13 @@ const ProfilePage = () => {
           power of your voice to shape our future. Our Feedback and Corruption
           Suggestion System is a key tool designed to:
         </p>
-        <h3>1. Improve Service Quality</h3>
+        <h5>1. Improve Service Quality</h5>
         <p>
           After interacting with our services, your feedback helps us
           continuously refine and improve our performance. By sharing your
           experience, you enable us to better serve you and the community.
         </p>
-        <h3>2. Ensure Transparency and Integrity</h3>
+        <h5>2. Ensure Transparency and Integrity</h5>
         <p>
           If you witness any form of corruption or unethical behavior, your
           suggestions and reports are invaluable in promoting accountability
@@ -61,18 +61,18 @@ const ProfilePage = () => {
           and your input is essential in safeguarding the integrity of our
           operations.
         </p>
-        <h3>3. Foster Trust and Collaboration</h3>
+        <h5>3. Foster Trust and Collaboration</h5>
         <p>
           By participating in this system, you contribute to a culture of
           openness and trust between MINT and the public. Your feedback and
           suggestions help us work together to build a more transparent and
           efficient organization.
         </p>
-        <h4>
+        <h6>
           Together, we can create a better, more accountable future for
           Ethiopia’s technological advancement. Your voice matters—share your
           feedback and suggestions today!
-        </h4>
+        </h6>
       </div>
 
       <h2 className="text-center mb-4">System Developer Team</h2>
