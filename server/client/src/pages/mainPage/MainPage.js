@@ -15,7 +15,7 @@ import image12 from "../../assets/img12.png";
 function MainPage() {
   const { selectedLanguage, labelLanguage } = useContext(LanguageContext);
   const sectionRef = useRef(null);
-  const [showQRCode, setShowQRCode] = useState(true); // State to manage QR code visibility
+  const [showQRCode, setShowQRCode] = useState(false); // State to manage QR code visibility
 
   useEffect(() => {
     const sectionElement = sectionRef.current;
@@ -84,6 +84,22 @@ function MainPage() {
             ? labelLanguage[selectedLanguage][29]
             : ""}
         </h3>
+        <div className="flowtexts">
+          <h3 className="flowtext">
+            {labelLanguage[selectedLanguage]
+              ? `${labelLanguage[selectedLanguage][55]} `
+              : ""}
+            {labelLanguage[selectedLanguage]
+              ? `${labelLanguage[selectedLanguage][56]} `
+              : ""}
+            {labelLanguage[selectedLanguage]
+              ? `${labelLanguage[selectedLanguage][58]} `
+              : ""}
+            {labelLanguage[selectedLanguage]
+              ? `${labelLanguage[selectedLanguage][60]} `
+              : ""}
+          </h3>
+        </div>
 
         {/* Conditionally render QR Code */}
         {showQRCode && (

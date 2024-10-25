@@ -62,9 +62,8 @@ const LanguageProvider = ({ children }) => {
       "Issue is required",
       "About",
       "Ministry of Innovation And Technology",
-      `     At the Ministry of Innovation and Technology (MINT), we believe in the
-          power of your voice to shape our future. Our Feedback and Corruption
-          Suggestion System is a key tool designed to:`,
+      `     At the Ministry of Innovation and Technology , we believe in the
+          power of your voice to shape our future. This system is a key tool designed to:`,
       "1. Improve Service Quality",
       ` After interacting with our services, your feedback helps us
           continuously refine and improve our performance. By sharing your
@@ -144,11 +143,11 @@ const LanguageProvider = ({ children }) => {
       `በኢኖቬሽን እና ቴክኖሎጂ ሚኒስቴር (MINT) እናምናለን
  የወደፊት ሕይወታችንን ለመቅረጽ የድምፅዎ ኃይል። የእኛ ግብረመልስ እና ሙስና
  የአስተያየት ጥቆማ ስርዓት የሚከተሉትን ለማድረግ የተነደፈ ቁልፍ መሳሪያ ነው፡-`,
-      "1. የአገልግሎት ጥራትን ማሻሻል",
+      " 1. የአገልግሎት ጥራትን ማሻሻል",
       `ከአገልግሎታችን ጋር ከተገናኘን በኋላ፣ የእርስዎ አስተያየት ይረዳናል።
  ያለማቋረጥ ማጣራት እና አፈፃፀማችንን ማሻሻል። ሼር በማድረግ
  ልምድ፣ እርስዎን እና ማህበረሰቡን በተሻለ ሁኔታ እንድናገለግል ያስችሉናል።`,
-      "2. ግልጽነትን እና ታማኝነትን ያረጋግጡ",
+      " 2. ግልጽነትን እና ታማኝነትን ያረጋግጡ",
       `ማንኛውንም ዓይነት ሙስና ወይም ሥነ ምግባር የጎደለው ድርጊት ከተመለከቱ፣ የእርስዎ
  ጥቆማዎች እና ሪፖርቶች ተጠያቂነትን በማስተዋወቅ ረገድ ጠቃሚ ናቸው
  በMINT ውስጥ ከፍተኛ የሥነ ምግባር ደረጃዎችን ለመጠበቅ ቆርጠናል,

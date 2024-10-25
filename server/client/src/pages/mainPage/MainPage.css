@@ -2,25 +2,52 @@
   margin-top: 10px;
   color: #ff6a00;
   border-radius: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 20px;
+  padding: 10px;
   text-align: center;
   width: 85%;
   margin: 0 auto;
 }
 
+.flowtexts {
+  margin-top: 220px;
+  background-color: #ff6a00;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.flowtext {
+  white-space: nowrap;
+  display: inline-block;
+  font-size: 2em;
+  animation: flowRightToLeft 20s linear infinite;
+}
+
+/* Adjusted keyframes to accommodate duplicate text */
+@keyframes flowRightToLeft {
+  0% {
+    transform: translateX(10%); /* Start at full width */
+  }
+  100% {
+    transform: translateX(-50%); /* Move by half width to create a continuous loop */
+  }
+}
+
 .bg-images {
   position: relative;
 }
+
 /* Base styling for the QR code */
 .qr-code-container {
   display: inline-block;
-  background-color: #ffffff; /* Background color */
-  padding: 15px; /* Padding around the QR code */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   position: absolute;
   top: 60px;
   right: 15px;
@@ -31,9 +58,9 @@
 /* Media query for mobile devices */
 @media (max-width: 768px) {
   .qr-code-container {
-    position: fixed; /* Change to fixed for mobile devices */
-    bottom: 15px; /* Place the QR code at the bottom */
-    right: 15px; /* Align it to the right */
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
     max-width: 220px;
     max-height: 200px;
   }
