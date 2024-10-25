@@ -9,32 +9,40 @@
 }
 
 .flowtexts {
-  
-  margin-top: 220px;
-  background-color: #ff6a00;
-  width: 100%;
+ 
+  margin-top: 200px;
+  background-color: #00ffbb;
+  width: 95%;
+ 
   overflow: hidden;
   position: relative;
   height: 50px;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
+  justify-content: center; /* Center align horizontally */
+  align-items: center; /* Center align vertically */
+  z-index: 1;
+  margin-left: auto;
+  margin-right: auto; /* Center the .flowtexts container itself */
+ }
 
 .flowtext {
+  text-align: center;
   white-space: nowrap;
   display: inline-block;
   font-size: 2em;
-  animation: flowRightToLeft 20s linear infinite;
+  animation: flowRightToLeft 30s linear infinite;
 }
+
 
 /* Adjusted keyframes to accommodate duplicate text */
 @keyframes flowRightToLeft {
   0% {
-    transform: translateX(10%); /* Start at full width */
+    transform: translateX(50%); /* Start at full width */
   }
   100% {
-    transform: translateX(-50%); /* Move by half width to create a continuous loop */
+    transform: translateX(
+      -50%
+    ); /* Move by half width to create a continuous loop */
   }
 }
 
@@ -64,5 +72,8 @@
     right: 15px;
     max-width: 220px;
     max-height: 200px;
+  }
+  .flowtexts {
+    margin-top: 105px;
   }
 }

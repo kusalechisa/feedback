@@ -52,11 +52,11 @@ function MainPage() {
         backgroundSize: "cover",
         backgroundPosition: "center",
         width: "100%",
-        height: "115vh",
+        height: "130vh",
       }}
       ref={sectionRef}
     >
-      {/* Button to toggle QR code visibility */}
+      
       <button
         onClick={() => setShowQRCode(!showQRCode)}
         style={{
