@@ -6,6 +6,7 @@ import { useNavigate, Navigate } from "react-router-dom";
 import useFetch from "../../hooks/fetch.hook";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+
 export default function Reset() {
   const { username } = useAuthStore((state) => state.auth);
   const navigate = useNavigate();
@@ -46,27 +47,26 @@ export default function Reset() {
 
   return (
     <section
-      className=" bg-image"
+      className="bg-image"
       style={{
-         backgroundColor: "rgb(255, 255, 255)",
-        paddingTop: "33px",
-        paddingBottom: "33px",
+        backgroundColor: "rgb(255, 255, 255)",
+        paddingTop: "25px",
+        paddingBottom: "25px",
         backgroundSize: "cover",
         backgroundPosition: "center",
         width: "100%",
-        height: "100vh",
+        height: "110vh",
       }}
     >
       <div
         className="container"
         style={{
-          backgroundColor: "rgb(239, 243, 244)", // Add a slight color tint with transparency
-
+          backgroundColor: "rgb(239, 243, 244)",
           border: "1px solid #1d1f1d",
           borderRadius: "8px",
           width: "300px",
-          marginTop: "8px",
-          height: "400px",
+          marginTop: "5px",
+          height: "500px",
         }}
       >
         <Toaster position="top-center" reverseOrder={false}></Toaster>
@@ -84,7 +84,7 @@ export default function Reset() {
                   <input
                     {...formik.getFieldProps("password")}
                     className="form-control"
-                    type={showPassword ? "password" : "text"}
+                    type={showPassword ? "text" : "password"}
                     placeholder="New Password"
                   />
                 </div>
@@ -92,7 +92,7 @@ export default function Reset() {
                   <input
                     {...formik.getFieldProps("confirm_pwd")}
                     className="form-control"
-                    type={showPassword ? "password" : "test"}
+                    type={showPassword ? "text" : "password"} // Fix type here
                     placeholder="Confirm Password"
                   />
                 </div>
@@ -101,10 +101,10 @@ export default function Reset() {
                   type="button"
                   onClick={togglePasswordVisibility}
                 >
-                  {showPassword ? "Show password" : "Hide password"}
+                  {showPassword ? "Hide password" : "Show password"}
                 </button>
-                <div class="d-grid">
-                  <button class="btn btn-primary" type="submit">
+                <div className="d-grid">
+                  <button className="btn btn-primary" type="submit">
                     Reset
                   </button>
                 </div>

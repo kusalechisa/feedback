@@ -4,11 +4,12 @@
   padding: 5%; /* Add padding for spacing */
 }
 
-h1, h5, h3, h6 {
-  color: #00eaff; /* Set a primary color for headings */
+ h5, h3, h6 {
+   /* Set a primary color for headings */
   transition: color 0.3s ease; /* Transition for color change */
 }
-
+h1{color: #0df7f7;
+font-weight: bold;}
 h1.display-4 {
   margin-bottom: 30px; /* Add margin below the main title */
   font-size: 2.5rem; /* Adjust font size for display */
@@ -38,9 +39,9 @@ h2 {
 }
 
 .card:hover {
-  transform: translateY(-5px); /* Lift effect on hover */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
-  background-color: #f8f9fa; /* Light background on hover */
+  transform: translateY(-10px); /* Lift effect on hover */
+  box-shadow: 0 83px 30px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+  background-color: #e9ebed; /* Light background on hover */
 }
 
 .card-header {
@@ -70,7 +71,7 @@ h2 {
 }
 
 .card-body img:hover {
-  transform: scale(1.1); /* Scale image on hover */
+  transform: scale(1.5); /* Scale image on hover */
   border-color: #0056b3; /* Darker border on hover */
 }
 

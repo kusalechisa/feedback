@@ -121,13 +121,12 @@ export default function ProfileUpdate() {
 
               <div className="text-center py-4">
                 <span className="text-gray-500">
-                  Forgot password?{" "}
                   <Link
                     className="text-info"
                     to="/recovery"
                     style={{ fontWeight: "bold", textDecoration: "none" }}
                   >
-                    Reset password!
+                    Forgot password?{" "}
                   </Link>
                 </span>
               </div>
