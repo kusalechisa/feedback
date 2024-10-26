@@ -30,7 +30,7 @@ export default function Reset() {
       });
 
       resetPromise.then(function () {
-        navigate("/homepage");
+        navigate("/adminLogin");
       });
     },
   });
