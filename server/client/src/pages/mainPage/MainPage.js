@@ -15,7 +15,7 @@ import image12 from "../../assets/img12.png";
 function MainPage() {
   const { selectedLanguage, labelLanguage } = useContext(LanguageContext);
   const sectionRef = useRef(null);
-  const [showQRCode, setShowQRCode] = useState(false); // State to manage QR code visibility
+  const [showQRCode, setShowQRCode] = useState(false);
 
   useEffect(() => {
     const sectionElement = sectionRef.current;
@@ -34,8 +34,13 @@ function MainPage() {
 
     const changeBackgroundImage = () => {
       currentImageIndex = (currentImageIndex + 1) % images.length;
-      const imageUrl = `url(${images[currentImageIndex]})`;
-      sectionElement.style.backgroundImage = imageUrl;
+      sectionElement.classList.add("slide-out");
+      sectionElement.style.backgroundImage = `url(${images[currentImageIndex]})`;
+
+      // Add sliding class and remove after animation
+      setTimeout(() => {
+        sectionElement.classList.remove("slide-out");
+      }, 1000); // Matches CSS transition duration
     };
 
     const intervalId = setInterval(changeBackgroundImage, 5000);
@@ -56,7 +61,6 @@ function MainPage() {
       }}
       ref={sectionRef}
     >
-      
       <button
         onClick={() => setShowQRCode(!showQRCode)}
         style={{
@@ -72,13 +76,12 @@ function MainPage() {
         {showQRCode ? "Hide QR Code" : "Show QR Code"}
       </button>
 
-      <div className="" style={{ paddingTop: "50px" }}>
+      <div style={{ paddingTop: "50px" }}>
         <h2 className="title">
           {labelLanguage[selectedLanguage]
             ? labelLanguage[selectedLanguage][28]
             : ""}
         </h2>
-
         <h3 className="title">
           {labelLanguage[selectedLanguage]
             ? labelLanguage[selectedLanguage][29]
@@ -101,7 +104,6 @@ function MainPage() {
           </h3>
         </div>
 
-        {/* Conditionally render QR Code */}
         {showQRCode && (
           <div className="qr-code-container">
             <div

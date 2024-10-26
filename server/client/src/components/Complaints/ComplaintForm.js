@@ -46,7 +46,7 @@ const ComplaintForm = () => {
         setPhone("");
         setEmail("");
         setComplaint("");
-        dispatchc({ type: "CREATE_COMPLAINT", payload: json });
+        dispatchc({ type: "CREATE_FEEDBACK", payload: json });
         toast.success("Complaint Sent!", {
           position: toast.POSITION,
         });
