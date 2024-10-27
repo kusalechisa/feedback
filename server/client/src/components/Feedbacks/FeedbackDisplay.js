@@ -80,7 +80,7 @@ const FeedbackDisplay = () => {
               transition: "background-color 0.3s ease",
               position: "absolute",
               textAlign:"center",
-              top:"100px,"
+              marginTop:"95px",
             }}
           >
             {displayGraph === "graph" ? "Show Table" : "Show Graph"}
