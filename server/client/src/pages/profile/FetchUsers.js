@@ -47,20 +47,16 @@ const FetchUsers = ({ users }) => {
     </>
   );
 
- 
   return (
     <div>
-     
       <div>
-     
         <hr />
         <div className="printable-table">
           <table className="table table-success table-striped-columns table-hover">
             <thead>
               <tr>
-                <th>Email</th>
                 <th>First Name</th>
-                <th>Last Name</th>
+                <th>Middle Name</th>
                 <th>Phone</th>
                 <th>Address</th>
                 <th>Role</th>
@@ -71,7 +67,6 @@ const FetchUsers = ({ users }) => {
             <tbody>
               {filteredUsers.map((user) => (
                 <tr key={user._id}>
-                  <td>{user.email}</td>
                   <td>{user.firstName}</td>
                   <td>{user.lastName}</td>
                   <td>{user.mobile}</td>
