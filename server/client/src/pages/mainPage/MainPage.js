@@ -37,10 +37,9 @@ function MainPage() {
       sectionElement.classList.add("slide-out");
       sectionElement.style.backgroundImage = `url(${images[currentImageIndex]})`;
 
-      // Add sliding class and remove after animation
       setTimeout(() => {
         sectionElement.classList.remove("slide-out");
-      }, 1000); // Matches CSS transition duration
+      }, 1000);
     };
 
     const intervalId = setInterval(changeBackgroundImage, 5000);
@@ -69,38 +68,21 @@ function MainPage() {
           border: "none",
           borderRadius: "5px",
           backgroundColor: "green",
-          color: "#fff000",
+          color: "#fff",
           cursor: "pointer",
         }}
       >
-        {showQRCode ? "Hide QR Code" : "Show QR Code"}
+        {showQRCode
+          ? labelLanguage[selectedLanguage]?.[66] || ""
+          : labelLanguage[selectedLanguage]?.[65] || ""}
       </button>
 
       <div style={{ paddingTop: "50px" }}>
-        <h2 className="title">
-          {labelLanguage[selectedLanguage]
-            ? labelLanguage[selectedLanguage][28]
-            : ""}
-        </h2>
-        <h3 className="title">
-          {labelLanguage[selectedLanguage]
-            ? labelLanguage[selectedLanguage][29]
-            : ""}
-        </h3>
+        <h2 className="title">{labelLanguage[selectedLanguage]?.[28] || ""}</h2>
+        <h3 className="title">{labelLanguage[selectedLanguage]?.[29] || ""}</h3>
         <div className="flowtexts">
           <h3 className="flowtext">
-            {labelLanguage[selectedLanguage]
-              ? `${labelLanguage[selectedLanguage][55]} `
-              : ""}
-            {labelLanguage[selectedLanguage]
-              ? `${labelLanguage[selectedLanguage][56]} `
-              : ""}
-            {labelLanguage[selectedLanguage]
-              ? `${labelLanguage[selectedLanguage][58]} `
-              : ""}
-            {labelLanguage[selectedLanguage]
-              ? `${labelLanguage[selectedLanguage][60]} `
-              : ""}
+            {labelLanguage[selectedLanguage]?.[64] || ""}
           </h3>
         </div>
 

@@ -83,6 +83,11 @@ const LanguageProvider = ({ children }) => {
           Ethiopia’s technological advancement. Your voice matters—share your
           feedback and suggestions today!`,
       "System's Developer Team",
+      `Your voice matters to us! After receiving our services, please take a moment to share your feedback.
+      It helps us improve and provide you with the best experience.
+       Additionally, if you’ve observed any unethical practices or have suggestions regarding integrity, let us know confidentially.`,
+      "Show QR Code",
+      "Hide QR Code"
     ],
     Am: [
       "ዘርፍ:",
@@ -162,6 +167,9 @@ const LanguageProvider = ({ children }) => {
  የኢትዮጵያ የቴክኖሎጂ እድገት። ድምጽዎ አስፈላጊ ነው - ያጋሩ
  አስተያየቶች እና አስተያየቶች ዛሬ!`,
       "የሲስተሙ ደቨሎፐር ቡድን",
+      `የእርስዎ ድምጽ ለእኛ አስፈላጊ ነው! አገልግሎቶቻችንን ከተቀበልን በኋላ፣እባክዎ ግብረ መልስዎን ለማጋራት ትንሽ ጊዜ ይውሰዱ። እኛ ለማሻሻል ይረዳናል እና ምርጥ ተሞክሮ ይሰጠዎታል። በተጨማሪም፣ ማንኛውም ስነምግባር የጎደላቸው ድርጊቶችን ከተመለከቱ ወይም ታማኝነትን በሚመለከት ጥቆማዎች ካሉዎት በሚስጥር ያሳውቁን።`,
+      "QR ኮድ አሳይ",
+      "QR ኮድ ደብቅ",
     ],
   };
 
