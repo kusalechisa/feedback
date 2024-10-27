@@ -90,14 +90,14 @@ const FeedbackDetails = ({ feedbacks }) => {
       <br />
       <div className="feedback-summary rounded">
         <h3>Total Feedbacks: {externalCount + internalCount}</h3>
-        <p>Internal Feedbacks: {internalCount}</p>
-        <p>External Feedbacks: {externalCount}</p>
+        <p>From Internal: {internalCount}</p>
+        <p>From External: {externalCount}</p>
       </div>
       <br />
 
       <div className="selectors-container rounded">
         <div
-          className="selectorclass rounded col-5 px-3 mx-5"
+          className="selectorclass rounded col-6 px-3 mx-4"
           style={{ backgroundColor: "#ada9a8" }}
         >
           <div>
@@ -113,7 +113,9 @@ const FeedbackDetails = ({ feedbacks }) => {
                 selectedSector === "" ? "empty-field" : ""
               } form-select form-select-md`}
             >
-              <option value="">All Sectors</option>
+              <option value="">
+                All Sectors
+              </option>
               {Array.from(
                 new Set(
                   feedbacks?.map((feedback) => feedback.selectedSector)
