@@ -113,9 +113,7 @@ const FeedbackDetails = ({ feedbacks }) => {
                 selectedSector === "" ? "empty-field" : ""
               } form-select form-select-md`}
             >
-              <option value="">
-                All Sectors
-              </option>
+              <option value="">All Sectors</option>
               {Array.from(
                 new Set(
                   feedbacks?.map((feedback) => feedback.selectedSector)
@@ -205,7 +203,10 @@ const FeedbackDetails = ({ feedbacks }) => {
         <table className="table table-bordered table-hover">
           <thead>
             <tr>
-              <th className="text-center">Sector</th>
+              <th className="text-center" style={{ maxWidth: "100px" }}>
+                Sector
+              </th>
+
               <th className="text-center">Office</th>
               {showDeskColumn && <th className="text-center">Desk</th>}
               <th className="text-center">Rating</th>
