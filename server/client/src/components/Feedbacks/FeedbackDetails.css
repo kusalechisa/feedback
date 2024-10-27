@@ -32,6 +32,8 @@
     display: none;
   }
 }
+
+/* Identity container styling */
 .identity-container {
   margin: 20px 0;
   padding: 10px;
@@ -70,12 +72,60 @@
 .identity-container select.form-select-md {
   font-family: "Arial", sans-serif;
 }
-select {
-  align-items: center;
+
+/* Feedback summary */
+.feedback-summary {
+  margin-left: 50px;
+  margin-top: 20px;
+  width: max-content;
+  padding: 5px;
+  font-weight: bold;
 }
-.graph-button:hover {
-  background-color: #0edf84; /* Change this to the color you want on hover */
+
+/* Button styles */
+button.btn-info {
+  padding: 8px 16px;
+  font-size: 1rem;
+  border-radius: 4px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
 }
+
+/* Button hover effect */
+button.btn-info:hover {
+  background-color: #0edf84;
+}
+
+/* Responsive button styling */
+@media (max-width: 768px) {
+  button.btn-info {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+
+  .selectors-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .feedback-summary {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+/* Selectors container */
+.selectors-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background-color: #d6d1d1;
+  padding: 5px 20px;
+}
+
+/* Search container */
 .search-containerfeed {
   position: relative;
   width: 100%;
@@ -85,9 +135,9 @@ select {
 
 .form-search {
   width: 100%;
-  padding: 4px 4px 4px 4px; /* Adjust padding to make space for the icon */
+  padding: 4px;
   box-sizing: border-box;
-  background-size: 20px; /* Adjust size as needed */
+  background-size: 20px;
 }
 
 .search-resultsfeed {
@@ -111,21 +161,20 @@ select {
 .search-result-itemfeed:hover {
   background-color: #fbfbfb;
 }
-/* FeedbackDetails.css */
-
-.selectors-container {
-  display: flex;
-  gap: 20px;  
-  align-items: flex-start;  
-  background-color: #d6d1d1;
-  padding: 5px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+/* Default button styles */
+.feedback-button {
+  margin: 10px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  width: auto;
 }
-.feedback-summary {
-  margin-left: 50px;
-  margin-top: 20px;
-  width: max-content;
-  padding: 5px;
-  font-weight: bold;
+
+/* Responsive button styles */
+@media (max-width: 768px) {
+  .feedback-button {
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
 }

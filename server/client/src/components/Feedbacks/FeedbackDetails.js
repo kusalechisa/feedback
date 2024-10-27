@@ -176,35 +176,28 @@ const FeedbackDetails = ({ feedbacks }) => {
       <br />
       <br />
 
-      <button
-        className="btn-primary px-0"
-        style={{ width: "60px", marginLeft: "50px", marginTop: "20px" }}
-        onClick={handlePrint}
-      >
+      <button className="btn btn-primary feedback-button" onClick={handlePrint}>
         Print
       </button>
       <button
-        className="btn btn-info"
-        style={{ marginLeft: "200px", marginTop: "0px" }}
+        className="btn btn-info feedback-button"
         onClick={() => setShowCustomerInfo(!showCustomerInfo)}
       >
         {showCustomerInfo ? "Hide Info & Issue" : "Show Info & Issue"}
       </button>
       <button
-        className="btn btn-info"
-        style={{ marginLeft: "20px", marginTop: "0px" }}
+        className="btn btn-info feedback-button"
         onClick={() => setShowDeskColumn(!showDeskColumn)}
       >
         {showDeskColumn ? "Hide Desk" : "Show Desk"}
       </button>
-      {/* Button to toggle delete button visibility */}
       <button
-        className="btn btn-info"
-        style={{ marginLeft: "20px", marginTop: "0px" }}
+        className="btn btn-info feedback-button"
         onClick={() => setShowDeleteButton(!showDeleteButton)}
       >
         {showDeleteButton ? "Hide Delete" : "Show Delete"}
       </button>
+
       <hr />
       <div className="printable-table">
         <table className="table table-bordered table-hover">

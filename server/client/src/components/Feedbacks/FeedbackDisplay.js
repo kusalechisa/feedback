@@ -63,7 +63,8 @@ const FeedbackDisplay = () => {
             marginTop: "10px",
           }}
         >
-          <h1 style={{ backgroundColor: "ButtonFace" }}>Feedback Dashboard</h1>
+          <h1 style={{ backgroundColor: "ButtonFace" }}>Feedback Dashboard</h1>{" "}
+         
           <button
             className={`graph-button ${
               displayGraph === "graph" ? "active" : ""
@@ -78,7 +79,8 @@ const FeedbackDisplay = () => {
               color: "black",
               transition: "background-color 0.3s ease",
               position: "absolute",
-              right: "100px",
+              textAlign:"center",
+              top:"100px,"
             }}
           >
             {displayGraph === "graph" ? "Show Table" : "Show Graph"}
