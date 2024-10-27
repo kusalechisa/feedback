@@ -13,13 +13,16 @@ const FeedbackDetails = ({ feedbacks }) => {
   const [selectedSector, setSelectedSector] = useState("");
   const [selectedOffice, setSelectedOffice] = useState("");
   const [selectedState, setSelectedState] = useState("both");
+  const [showCustomerInfo, setShowCustomerInfo] = useState(false);
+  const [showDeskColumn, setShowDeskColumn] = useState(false);
+  const [showDeleteButton, setShowDeleteButton] = useState(false); // State for delete button visibility
 
-  const handleClick = async (workoutId) => {
+  const handleClick = async (feedbackId) => {
     if (!user) {
       return;
     }
 
-    const response = await fetch(`/api/feedbacks/${workoutId}`, {
+    const response = await fetch(`/api/feedbacks/${feedbackId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${user.token}`,
@@ -103,7 +106,7 @@ const FeedbackDetails = ({ feedbacks }) => {
               id="sector"
               onChange={(e) => {
                 setSelectedSector(e.target.value);
-                setSelectedOffice(""); // Reset the selected office when changing sector
+                setSelectedOffice("");
               }}
               value={selectedSector}
               className={`form-control ${
@@ -180,6 +183,28 @@ const FeedbackDetails = ({ feedbacks }) => {
       >
         Print
       </button>
+      <button
+        className="btn btn-info"
+        style={{ marginLeft: "200px", marginTop: "0px" }}
+        onClick={() => setShowCustomerInfo(!showCustomerInfo)}
+      >
+        {showCustomerInfo ? "Hide Info & Issue" : "Show Info & Issue"}
+      </button>
+      <button
+        className="btn btn-info"
+        style={{ marginLeft: "20px", marginTop: "0px" }}
+        onClick={() => setShowDeskColumn(!showDeskColumn)}
+      >
+        {showDeskColumn ? "Hide Desk" : "Show Desk"}
+      </button>
+      {/* Button to toggle delete button visibility */}
+      <button
+        className="btn btn-info"
+        style={{ marginLeft: "20px", marginTop: "0px" }}
+        onClick={() => setShowDeleteButton(!showDeleteButton)}
+      >
+        {showDeleteButton ? "Hide Delete" : "Show Delete"}
+      </button>
       <hr />
       <div className="printable-table">
         <table className="table table-bordered table-hover">
@@ -187,16 +212,21 @@ const FeedbackDetails = ({ feedbacks }) => {
             <tr>
               <th className="text-center">Sector</th>
               <th className="text-center">Office</th>
-              <th className="text-center">Desk</th>
+              {showDeskColumn && <th className="text-center">Desk</th>}
               <th className="text-center">Rating</th>
-              <th className="text-center py-0">
-                Customer Info <br /> {selectedState}
-              </th>
-              <th className="text-center">Issue</th>
+              {showCustomerInfo && (
+                <>
+                  <th className="text-center">
+                    Customer Info <br /> {selectedState}
+                  </th>
+                  <th className="text-center">Issue</th>
+                </>
+              )}
               <th className="text-center">Comment</th>
-
               <th style={{ width: "100px" }}>Date</th>
-              <th className="trash-column px-0">Delete</th>
+              {showDeleteButton && (
+                <th className="trash-column px-0">Delete</th>
+              )}
             </tr>
           </thead>
           <tbody>
@@ -211,33 +241,36 @@ const FeedbackDetails = ({ feedbacks }) => {
                 <tr key={feedback._id}>
                   <td>{feedback.selectedSector}</td>
                   <td>{feedback.selectedOffice}</td>
-                  <td>{feedback.selectedDesk}</td>
+                  {showDeskColumn && <td>{feedback.selectedDesk}</td>}
                   <td>{feedback.stars}</td>
-                  <td className="text-center">
-                    {`${feedback.email}`}
-                    <br />
-                    {`${feedback.phone}`}
-                  </td>
-                  <td>{feedback.issue}</td>
+                  {showCustomerInfo && (
+                    <>
+                      <td className="text-center">
+                        {`${feedback.email}`}
+                        <br />
+                        {`${feedback.phone}`}
+                      </td>
+                      <td>{feedback.issue}</td>
+                    </>
+                  )}
                   <td>{feedback.comment}</td>
-
                   <td>{formatDate(new Date(feedback.createdAt))}</td>
-                  <td className="trash-column">
-                    <button
-                      className="btn text-danger"
-                      onClick={() => handleClick(feedback._id)}
-                    >
-                      <FontAwesomeIcon icon={faTrash} />
-                    </button>
-                  </td>
+                  {showDeleteButton && (
+                    <td className="trash-column">
+                      <button
+                        className="btn text-danger"
+                        onClick={() => handleClick(feedback._id)}
+                      >
+                        <FontAwesomeIcon icon={faTrash} />
+                      </button>
+                    </td>
+                  )}
                 </tr>
               ))
             )}
           </tbody>
         </table>
       </div>
-      <br />
-      <br />
     </>
   );
 };
