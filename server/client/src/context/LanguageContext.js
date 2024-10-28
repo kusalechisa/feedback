@@ -50,7 +50,7 @@ const LanguageProvider = ({ children }) => {
       "External",
       "Choose one",
       "Service Requested",
-      "Main Issue:",
+      "Requested Service:",
       "Email:",
       "main issue",
       "example@gmail.com",
@@ -87,7 +87,7 @@ const LanguageProvider = ({ children }) => {
       It helps us improve and provide you with the best experience.
        Additionally, if you’ve observed any unethical practices or have suggestions regarding integrity, let us know confidentially.`,
       "Show QR Code",
-      "Hide QR Code"
+      "Hide QR Code",
     ],
     Am: [
       "ዘርፍ:",
@@ -133,7 +133,7 @@ const LanguageProvider = ({ children }) => {
       "የውጭ",
       "አንዱን ይምረጡ",
       "የአገልግሎት ጥያቄ",
-      "ዋና ጉዳይ",
+      "የአገልግሎት ጥያቄ",
       "የእርስዎ ኢሜይል",
       "ዋና ጉዳይ",
       "example@gmail.com",

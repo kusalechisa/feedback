@@ -426,10 +426,7 @@ const FeedBackForm = () => {
               marginBottom: "10px",
             }}
           >
-            {" "}
-            {labelLanguage[selectedLanguage]
-              ? labelLanguage[selectedLanguage][42]
-              : ""}
+     
           </div>
           <div className="form-MainIssuefeed">
             <label htmlFor="mainissue">
