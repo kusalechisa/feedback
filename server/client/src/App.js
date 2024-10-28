@@ -7,13 +7,13 @@ import {
 } from "react-router-dom";
 
 /** import all components */
-import Profile from "./pages/profile/Profile.js";
+import ProfileDisplay from "./pages/profile/ProfileDisplay.js";
 import Recovery from "./pages/passwordRecovery/Recovery.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import PageNotFound from "./pages/passwordRecovery/PageNotFound";
 import ProfileLogin from "./pages/profile/ProfileLogin.js";
-import UserName from "./pages/profile/UserName.js";
-import ProfileUpdate from "./pages/profile/ProfileUpdate.js";
+import UserNameLogin from "./pages/passwordRecovery/UserNameLogin.js";
+import ProfilePassword from "./pages/profile/ProfilePassword.js";
 import AdminSignup from "./pages/feedbackPage/AdminSignup.js";
 import ComplaintSignup from "./pages/complaintPage/ComplaintSignup.js";
 import AdminLogin from "./pages/feedbackPage/AdminLogin.js";
@@ -23,14 +23,14 @@ import Navbar from "./components/Navbar/Navbar.js";
 import ResetPassword from "./pages/passwordRecovery/Reset.js";
 import GiveFeedback from "./components/Feedbacks/FeedbackForm.js";
 import HomePage from "./pages/mainPage/MainPage.js";
-import UserDisplay from "./pages/profile/UserDisplay.js";
+import UserDisplay from "./pages/userPage/UserDisplay.js";
 /** auth middleware */
 import { AuthorizeUser, ProtectRoute } from "./middleware/auth";
 import { useAuthContext } from "./hooks/useAuthContext.js";
 import { useAuthContextC } from "./hooks/useAuthContextC.js";
 import ComplaintForm from "./components/Complaints/ComplaintForm.js";
 import ComplaintDisplay from "./components/Complaints/ComplaintDisplay.js";
-import ProfilePage from "./ProfilePage.js"
+import About from "./pages/About/About.js";
 
 function App() {
   const { user } = useAuthContext();
@@ -72,7 +72,7 @@ function App() {
             <Route path="/profilelogin" element={profilelogin} />
             <Route
               path="/usernamelogin"
-              element={!user ? <UserName /> : <Navigate to="/" />}
+              element={!user ? <UserNameLogin /> : <Navigate to="/" />}
             />
             <Route path="/usersdetail" element={cont} />
 
@@ -82,10 +82,10 @@ function App() {
               element={!user ? <AdminLogin /> : <Navigate to="/" />}
             />
             <Route
-              path="/profileupdate"
+              path="/profilepassword"
               element={
                 <ProtectRoute>
-                  <ProfileUpdate />
+                  <ProfilePassword />
                 </ProtectRoute>
               }
             />
@@ -93,7 +93,7 @@ function App() {
               path="/profile"
               element={
                 <AuthorizeUser>
-                  <Profile />
+                  <ProfileDisplay />
                 </AuthorizeUser>
               }
             />
@@ -106,7 +106,7 @@ function App() {
             <Route path="/givefeedback" element={<GiveFeedback />} />
             <Route path="/complaintform" element={<ComplaintForm />} />
             <Route path="/analyze" element={<Analyze />} />
-            <Route path="/ProfilePage" element={<ProfilePage />} />
+            <Route path="/About" element={<About />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>

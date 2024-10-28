@@ -8,7 +8,7 @@ import useFetch from "../../hooks/fetch.hook";
 import { useAuthStore } from "../../store/store";
 import { verifyPassword } from "../../helper/helper";
 
-export default function ProfileUpdate() {
+export default function ProfilePassword() {
   const navigate = useNavigate();
   const { username } = useAuthStore((state) => state.auth);
   const [{ isLoading, apiData, serverError }] = useFetch(`/user/${username}`);

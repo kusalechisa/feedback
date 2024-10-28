@@ -106,7 +106,7 @@ export async function updateUser(response) {
 
     return Promise.resolve({ data });
   } catch (error) {
-    return Promise.reject({ error: "Couldn't Update Profile...!" });
+    return Promise.reject({ error: "Couldn't Update ProfileDisplay...!" });
   }
 }
 

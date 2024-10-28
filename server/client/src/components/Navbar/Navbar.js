@@ -216,7 +216,7 @@ const Navbar = () => {
                       className={`nav-link ${
                         activeLink === "abouts" ? "active" : ""
                       }`}
-                      to="/ProfilePage"
+                      to="/About"
                       onClick={() => handleNavLinkClick("abouts")}
                     >
                       {" "}

@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import "./ProfilePage.css";
-import profilePic from "./assets/profile-pic-2.jpg";
-import profilePicKeng from "./assets/kengita.png";
-import profilePicTedy from "./assets/tedy.jpg";
-import profilePiclem from "./assets/image.png";
-import { LanguageContext } from "./context/LanguageContext";
-const ProfilePage = () => {
-   const { selectedLanguage, labelLanguage } = useContext(LanguageContext);
+import "./About.css";
+import profilePic from "../../assets/profile-pic-2.jpg";
+import profilePicKeng from "../../assets/kengita.png";
+import profilePicTedy from "../../assets/tedy.jpg";
+import profilePiclem from "../../assets/image.png";
+import { LanguageContext } from "../../context/LanguageContext";
+const About = () => {
+  const { selectedLanguage, labelLanguage } = useContext(LanguageContext);
   const users = [
     {
       name: "Yaduma Lechisa",
@@ -116,7 +116,7 @@ const ProfilePage = () => {
               <div className="card-body text-center">
                 <img
                   src={user.profilePicture}
-                  alt="Profile"
+                  alt="ProfileDisplay"
                   className="rounded-circle mb-3"
                   style={{
                     width: "100px",
@@ -137,4 +137,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default About;

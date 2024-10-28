@@ -8,7 +8,7 @@ import useFetch from "../../hooks/fetch.hook";
 import { updateUser } from "../../helper/helper";
 import { useNavigate } from "react-router-dom";
 
-export default function Profile() {
+export default function ProfileDisplay() {
   const [file, setFile] = useState();
   const [{ isLoading, apiData, serverError }] = useFetch();
   const navigate = useNavigate();
@@ -66,7 +66,7 @@ export default function Profile() {
           </span>
         </div>
         <div className="title items-center">
-          <h4 className="font-bold">Profile</h4>
+          <h4 className="font-bold">ProfileDisplay</h4>
         </div>
         <Formik
           initialValues={{

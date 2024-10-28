@@ -22,7 +22,7 @@ export default function ProfileLogin() {
       setLoading(true);
       setUsername(values.username);
       setLoading(false);
-      navigate("/profileupdate");
+      navigate("/profilepassword");
     },
   });
 
