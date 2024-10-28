@@ -8,7 +8,7 @@
    /* Set a primary color for headings */
   transition: color 0.3s ease; /* Transition for color change */
 }
-h1{color: #0df7f7;
+h1{color: #003cff;
 font-weight: bold;}
 h1.display-4 {
   margin-bottom: 30px; /* Add margin below the main title */
@@ -20,7 +20,7 @@ h3 {
   margin-top: 20px; /* Add margin above section titles */
   position: relative; /* Enable positioning for underline effect */
 }
- 
+ h5{color: #ffe100;}
 
 h5:hover::after {
   width: 100%; /* Expand underline on hover */
@@ -66,7 +66,7 @@ h2 {
 
 .card-body img {
   border-radius: 50%; /* Make the profile image circular */
-  border: 3px solid #007bff; /* Border for the profile image */
+  border: 3px solid #00f2ff; /* Border for the profile image */
   transition: transform 0.3s ease, border-color 0.3s ease; /* Transition for image scaling and border color */
 }
 

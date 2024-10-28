@@ -110,7 +110,7 @@ const About = () => {
         {users.map((user, index) => (
           <div className="col-lg-3 col-md-6 col-sm-12 mb-4" key={index}>
             <div className="card shadow-sm h-100">
-              <div className="card-header text-center bg-primary text-white">
+              <div className="card-header text-center bg-success text-white">
                 <h5>{user.name}</h5>
               </div>
               <div className="card-body text-center">
