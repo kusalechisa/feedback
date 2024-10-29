@@ -67,7 +67,7 @@ export default function AdminLogin() {
                 />
                 {isLoading ? (
                   <button className="btn btn-primary" type="submit" disabled>
-                    please wait...
+                    Please wait...
                   </button>
                 ) : (
                   <button className="btn btn-success" type="submit">

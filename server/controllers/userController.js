@@ -25,14 +25,14 @@ const userLogin = async (req, res) => {
   }
 };
 
-// get all workouts
+// get all Users
 const getUsers = async (req, res) => {
   const users = await User.find({}).sort({ createdAt: -1 });
 
   res.status(200).json(users);
 };
 
-// get a single workout
+// get a single User
 const getUser = async (req, res) => {
   const { id } = req.params;
 
@@ -49,7 +49,7 @@ const getUser = async (req, res) => {
   res.status(200).json(user);
 };
 
-// create a new workout
+// create a new user
 const createUser = async (req, res) => {
   const { phone, complaint } = req.body;
 
@@ -65,7 +65,7 @@ const createUser = async (req, res) => {
   }
 };
 
-// delete a workout
+// delete a user
 const deleteUser = async (req, res) => {
   const { id } = req.params;
 
@@ -82,7 +82,7 @@ const deleteUser = async (req, res) => {
   res.status(200).json(user);
 };
 
-// update a workout
+// update a user
 const updateUser = async (req, res) => {
   const { id } = req.params;
 
