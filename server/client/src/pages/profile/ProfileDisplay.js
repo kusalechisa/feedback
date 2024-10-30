@@ -65,9 +65,7 @@ export default function ProfileDisplay() {
             </button>
           </span>
         </div>
-        <div className="title items-center">
-          <h4 className="font-bold">ProfileDisplay</h4>
-        </div>
+         
         <Formik
           initialValues={{
             username: apiData?.username || "",
