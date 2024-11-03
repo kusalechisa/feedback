@@ -12,7 +12,7 @@ const About = () => {
       name: "Yaduma Lechisa",
       email: "kusalechisac@gmail.com",
       phone: "+251 917 190 991",
-      bio: "Passionate about software development, especially using the MERN stack.",
+      bio: "Passionate about software development, especially using the Full stack.",
       profilePicture: profilePic,
     },
     {
