@@ -42,7 +42,7 @@
   background-color: #d6d1d1;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-   text-align: center;
+  text-align: center;
 }
 
 .identity-container h3 {
@@ -50,7 +50,6 @@
   font-weight: bold;
   color: #333;
   margin-bottom: 10px;
-  
 }
 
 .identity-container select {
@@ -61,7 +60,6 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   transition: border-color 0.3s ease;
- 
 }
 
 .identity-container select:focus {
@@ -181,4 +179,18 @@ button.btn-info:hover {
     padding: 10px;
     font-size: 0.9rem;
   }
+}
+.confirmation-card {
+  display: flex;
+  padding: 0;
+  flex-direction: column;
+  margin-top: 10px; /* Adds space between the delete button and the confirmation message */
+  align-items: center; /* Center the confirmation buttons */
+}
+
+.delete-button-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  align-items: center; /* Center the delete button and confirmation card */
 }

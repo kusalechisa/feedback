@@ -15,12 +15,11 @@ const FeedbackDetails = ({ feedbacks }) => {
   const [selectedState, setSelectedState] = useState("both");
   const [showCustomerInfo, setShowCustomerInfo] = useState(false);
   const [showDeskColumn, setShowDeskColumn] = useState(false);
-  const [showDeleteButton, setShowDeleteButton] = useState(false); // State for delete button visibility
+  const [showDeleteButton, setShowDeleteButton] = useState(false);
+  const [feedbackToDelete, setFeedbackToDelete] = useState(null);
 
-  const handleClick = async (feedbackId) => {
-    if (!user) {
-      return;
-    }
+  const handleDelete = async (feedbackId) => {
+    if (!user) return;
 
     const response = await fetch(`/api/feedbacks/${feedbackId}`, {
       method: "DELETE",
@@ -33,56 +32,55 @@ const FeedbackDetails = ({ feedbacks }) => {
 
     if (response.ok) {
       dispatch({ type: "DELETE_FEEDBACK", payload: json });
+      setFeedbackToDelete(null); // Reset deletion state after successful delete
     }
   };
 
-  const filteredWorkouts = useMemo(() => {
-    let filtered = feedbacks;
+  const filteredFeedbacks = useMemo(() => {
+    return feedbacks.filter((feedback) => {
+      const matchesState =
+        selectedState === "both" ||
+        feedback.identity?.toLowerCase() === selectedState;
+      const matchesSector =
+        !selectedSector || feedback.selectedSector === selectedSector;
+      const matchesOffice =
+        !selectedOffice || feedback.selectedOffice === selectedOffice;
 
-    if (selectedState !== "both") {
-      filtered = filtered.filter(
-        (feedback) => feedback.identity?.toLowerCase() === selectedState
-      );
-    }
-
-    if (selectedSector !== "") {
-      filtered = filtered.filter(
-        (feedback) => feedback.selectedSector === selectedSector
-      );
-    }
-
-    if (selectedOffice !== "") {
-      filtered = filtered.filter(
-        (feedback) => feedback.selectedOffice === selectedOffice
-      );
-    }
-
-    return filtered;
+      return matchesState && matchesSector && matchesOffice;
+    });
   }, [feedbacks, selectedSector, selectedOffice, selectedState]);
 
-  const internalCount = useMemo(() => {
-    return feedbacks.filter(
-      (feedback) => feedback.identity?.toLowerCase() === "internal"
-    ).length;
-  }, [feedbacks]);
+  const internalCount = useMemo(
+    () =>
+      feedbacks.filter(
+        (feedback) => feedback.identity?.toLowerCase() === "internal"
+      ).length,
+    [feedbacks]
+  );
 
-  const externalCount = useMemo(() => {
-    return feedbacks.filter(
-      (feedback) => feedback.identity?.toLowerCase() === "external"
-    ).length;
-  }, [feedbacks]);
+  const externalCount = useMemo(
+    () =>
+      feedbacks.filter(
+        (feedback) => feedback.identity?.toLowerCase() === "external"
+      ).length,
+    [feedbacks]
+  );
 
-  const handlePrint = () => {
-    window.print();
+  const formatDate = (date) => (
+    <>
+      <div style={{ fontSize: "0.8rem" }}>{format(date, "hh:mm a")}</div>
+      <div>{format(date, "dd-MM-yyyy")}</div>
+    </>
+  );
+
+  const confirmDelete = () => {
+    if (feedbackToDelete) {
+      handleDelete(feedbackToDelete);
+    }
   };
 
-  const formatDate = (date) => {
-    return (
-      <>
-        <div style={{ fontSize: "0.8rem" }}>{format(date, "hh:mm a")}</div>
-        <div>{format(date, "dd-MM-yyyy")}</div>
-      </>
-    );
+  const cancelDelete = () => {
+    setFeedbackToDelete(null); // Reset state to cancel deletion
   };
 
   return (
@@ -115,9 +113,7 @@ const FeedbackDetails = ({ feedbacks }) => {
             >
               <option value="">All Sectors</option>
               {Array.from(
-                new Set(
-                  feedbacks?.map((feedback) => feedback.selectedSector)
-                ) || []
+                new Set(feedbacks.map((feedback) => feedback.selectedSector))
               ).map((sector, index) => (
                 <option key={index} value={sector}>
                   {sector}
@@ -125,7 +121,7 @@ const FeedbackDetails = ({ feedbacks }) => {
               ))}
             </select>
           </div>
-          {selectedSector !== "" && feedbacks && feedbacks.length > 0 && (
+          {selectedSector && feedbacks.length > 0 && (
             <div>
               <br />
               <h5 htmlFor="office">Office:</h5>
@@ -144,7 +140,7 @@ const FeedbackDetails = ({ feedbacks }) => {
                       .filter(
                         (feedback) => feedback.selectedSector === selectedSector
                       )
-                      ?.map((feedback) => feedback.selectedOffice) || []
+                      .map((feedback) => feedback.selectedOffice)
                   )
                 ).map((office, index) => (
                   <option key={index} value={office}>
@@ -176,7 +172,10 @@ const FeedbackDetails = ({ feedbacks }) => {
       <br />
       <br />
 
-      <button className="btn btn-primary feedback-button" onClick={handlePrint}>
+      <button
+        className="btn btn-primary feedback-button"
+        onClick={() => window.print()}
+      >
         Print
       </button>
       <button
@@ -206,7 +205,6 @@ const FeedbackDetails = ({ feedbacks }) => {
               <th className="text-center" style={{ maxWidth: "100px" }}>
                 Sector
               </th>
-
               <th className="text-center">Office</th>
               {showDeskColumn && <th className="text-center">Desk</th>}
               <th className="text-center">Rating</th>
@@ -226,14 +224,14 @@ const FeedbackDetails = ({ feedbacks }) => {
             </tr>
           </thead>
           <tbody>
-            {filteredWorkouts.length === 0 ? (
+            {filteredFeedbacks.length === 0 ? (
               <tr>
                 <td colSpan="9" className="text-center">
                   No feedback is available
                 </td>
               </tr>
             ) : (
-              filteredWorkouts.map((feedback) => (
+              filteredFeedbacks.map((feedback) => (
                 <tr key={feedback._id}>
                   <td>{feedback.selectedSector}</td>
                   <td>{feedback.selectedOffice}</td>
@@ -252,13 +250,32 @@ const FeedbackDetails = ({ feedbacks }) => {
                   <td>{feedback.comment}</td>
                   <td>{formatDate(new Date(feedback.createdAt))}</td>
                   {showDeleteButton && (
-                    <td className="trash-column">
-                      <button
-                        className="btn text-danger"
-                        onClick={() => handleClick(feedback._id)}
-                      >
-                        <FontAwesomeIcon icon={faTrash} />
-                      </button>
+                    <td className="text-center trash-column px-0">
+                      <div className="delete-button-container">
+                        <button
+                          className="btn btn-danger"
+                          onClick={() => setFeedbackToDelete(feedback._id)}
+                        >
+                          <FontAwesomeIcon icon={faTrash} />
+                        </button>
+                        {feedbackToDelete === feedback._id && (
+                          <div className="confirmation-card">
+                          
+                            <button
+                              className="btn btn-danger"
+                              onClick={confirmDelete}
+                            >
+                              Confirm
+                            </button>
+                            <button
+                              className="btn btn-secondary"
+                              onClick={cancelDelete}
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        )}
+                      </div>
                     </td>
                   )}
                 </tr>
