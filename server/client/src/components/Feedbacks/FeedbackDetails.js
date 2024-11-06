@@ -5,7 +5,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useState, useMemo } from "react";
 import { format } from "date-fns";
 import "./FeedbackDetails.css";
-
+import "./Analyze.css";
 const FeedbackDetails = ({ feedbacks }) => {
   const { dispatch } = useFeedbackContext();
   const { user } = useAuthContext();

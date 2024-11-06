@@ -1,155 +1,290 @@
-.filter-buttons {
-  margin-top: 100px;
-  width: 80%;
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 15px;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+}
+
+h4,
+h3,
+h5 {
+  font-weight: 500;
+}
+
+/* Analyze Component */
+.home {
+  background-color: #ded8d7;
+  margin-top: 10px;
+  width: 100%;
   padding: 20px;
-  background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.filter-buttons h4 {
-  margin-bottom: 15px;
-  font-size: 1.2rem;
-  color: #333;
-}
-.table-buttons {
-  width: 30%;
-  margin-top: 50px;
-}
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 15px;
-}
-
-.button {
-  padding: 10px 15px;
-  border: none;
-  background-color: #007bff;
-  color: #fff;
-  font-size: 0.9rem;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.button:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
-}
-
-.button.active {
-  background-color: #28a745;
-}
-
-.table-buttons {
+.chart-container {
   display: flex;
-  gap: 10px;
-  margin-bottom: 1.5rem;
+  flex-wrap: wrap; /* Allow items to wrap when needed */
+  justify-content: space-between; /* Space out elements */
+  gap: 20px; /* Adds space between chart and the ratings container */
 }
 
-.table-buttons .button {
-  background-color: #17a2b8;
-  flex: 1;
+.chart-container > * {
+  flex: 1 1 45%; /* Allow both the Chart and Ratings container to take up equal space */
 }
 
-.table-buttons .button:hover {
-  background-color: #138496;
-}
-
-.sector-table,
-.office-table {
-  margin-top: 2rem;
-}
-
-table {
-  width: 80%;
-  border-collapse: collapse;
-  margin-top: 20px;
+.ratings-container {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 20px;
   border-radius: 8px;
-  overflow: hidden;
-  background-color: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 300px; /* Adjust width as needed */
+  margin: 20px auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
 }
 
-th,
-td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-th {
-  background-color: #f4f4f4;
+.ratings-container h4 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
   color: #333;
 }
 
-td {
+.ratings-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.ratings-container li {
+  font-size: 1rem;
+  margin-bottom: 8px;
   color: #555;
 }
 
-td.active {
+.ratings-container li:last-child {
+  margin-bottom: 0;
+}
+
+.ratings-container li::before {
+  content: "• "; /* Bullet point before each item */
+  color: #007bff;
   font-weight: bold;
 }
 
-td:hover {
-  background-color: #f1f1f1;
+h4 {
+  margin-top: 0; /* Remove margin from the top of the Total Ratings heading */
 }
 
-/* Responsive design for smaller screens */
+/* Selector Containers */
+
+.rating-buttons,
+.table-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+.rating-buttons{margin-top: 100px;}
+.selectors-container {
+  justify-content: space-between;
+}
+
+.selectorclass,
+.identity-container {
+  background-color: #ada9a8;
+  padding: 15px;
+  flex: 1 1 calc(50% - 20px);
+  margin: 10px;
+  border-radius: 8px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.empty-field {
+  border-color: red;
+}
+
+/* Button Styling */
+.button,
+.label-btn,
+.sector-btn,
+.office-btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button {
+    
+  background-color: #28a745;
+  color: white;
+}
+
+.label-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.sector-btn,
+.office-btn {
+  background-color: #ada9a8;
+}
+
+.button:hover,
+.label-btn:hover,
+.sector-btn:hover,
+.office-btn:hover {
+  background-color: #218838;
+  color: white;
+}
+
+.label-btn.active,
+.label-btn:hover {
+  background-color: #62de8b;
+}
+
+.table-buttons {
+  gap: 20px;
+}
+
+.label-btn.active {
+  font-weight: bold;
+}
+
+/* Canvas Styling */
+canvas {
+  width: 70% !important;
+  height: auto !important;
+}
+
+/* Sector and Office Tables */
+.sector-table,
+.office-table {
+  margin-top: 30px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sector-table table,
+.office-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.sector-table th,
+.office-table th {
+  background-color: #007bff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 3px;
+  color: white;
+  text-align: left;
+}
+
+.sector-table td,
+.office-table td {
+  text-align: left;
+  padding-left: 3px;
+  border: 1px solid #ddd;
+}
+
+.sector-table tr:nth-child(even),
+.office-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.sector-table tr:hover,
+.office-table tr:hover {
+  background-color: #ddd;
+}
+
+/* Date formatting */
+td {
+  text-align: center;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
-  .content-wrapper {
-    flex-direction: column; /* Stack content vertically */
+  /* Flex adjustments for smaller screens */
+  .selectors-container,
+  .rating-buttons,
+  .table-buttons {
+    flex-direction: column;
     align-items: center;
   }
 
-  .chart-container,
-  .filter-buttons {
-    width: 100%;
-    margin-bottom: 20px;
+  .selectorclass,
+  .identity-container {
+    flex: 1 1 100%;
+    margin: 5px 0;
+  }
+
+  .rating-buttons,
+  .table-buttons {
+    gap: 5px;
   }
 
   .button {
-    padding: 8px 12px;
-    font-size: 0.85rem;
+    width: 80%;
+    text-align: center;
   }
 
-  .buttons {
-    grid-template-columns: 1fr; /* Stack buttons in one column */
+  /* Table Adjustments */
+  .sector-table table,
+  .office-table table {
+    font-size: 8px;
   }
 
-  table {
-    font-size: 0.9rem;
-  }
-
-  th,
-  td {
-    padding: 8px;
-  }
-
-  .total-ratings ul {
-    font-size: 1rem;
+  .sector-table th,
+  .office-table th,
+  .sector-table td,
+  .office-table td {
+    padding: 5px;
   }
 }
 
-@media (max-width: 480px) {
-  .title {
-    font-size: 1.5rem; /* Reduce title size */
+@media (max-width: 576px) {
+  .home {
+    padding: 10px;
   }
 
   .button {
-    padding: 6px 10px;
-    font-size: 0.8rem; /* Smaller buttons on very small screens */
+    padding: 8px 15px;
   }
 
-  .total-ratings h4 {
-    font-size: 1.2rem; /* Smaller font for total ratings */
+  .table-buttons .button {
+    padding: 8px 15px;
+  }
+}
+
+/* Chart and Total Rating next to each other on large screens only */
+@media (min-width: 768px) {
+  .chart-container {
+    display: flex;
+    justify-content: space-between; /* Ensure they are spaced apart */
+    align-items: flex-start; /* Align both elements at the top */
   }
 
-  .filter-buttons h4 {
-    font-size: 1rem; /* Smaller filter heading */
-  }
-
-  table {
-    font-size: 0.8rem;
+  .chart-container > .chart, /* Assuming the chart has a class "chart" */
+  .chart-container > .ratings-container {
+    flex: 1; /* Both the chart and ratings container will take equal width */
+    margin-right: 20px; /* Optional: Add space between the two components */
   }
 }

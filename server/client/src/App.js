@@ -98,7 +98,7 @@ function App() {
               }
             />
 
-            <Route path="/homepage" element={<HomePage />} />
+            <Route exact path="/homepage" element={<HomePage />} />
             <Route path="/adminsignup" element={auth} />
             <Route path="/complaintsignup" element={auths} />
             <Route path="/recovery" element={<Recovery />} />
