@@ -1,0 +1,155 @@
+.filter-buttons {
+  margin-top: 100px;
+  width: 80%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter-buttons h4 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #333;
+}
+.table-buttons {
+  width: 30%;
+  margin-top: 50px;
+}
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+}
+
+.button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.button.active {
+  background-color: #28a745;
+}
+
+.table-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.table-buttons .button {
+  background-color: #17a2b8;
+  flex: 1;
+}
+
+.table-buttons .button:hover {
+  background-color: #138496;
+}
+
+.sector-table,
+.office-table {
+  margin-top: 2rem;
+}
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+td {
+  color: #555;
+}
+
+td.active {
+  font-weight: bold;
+}
+
+td:hover {
+  background-color: #f1f1f1;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column; /* Stack content vertically */
+    align-items: center;
+  }
+
+  .chart-container,
+  .filter-buttons {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .button {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  .buttons {
+    grid-template-columns: 1fr; /* Stack buttons in one column */
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+
+  th,
+  td {
+    padding: 8px;
+  }
+
+  .total-ratings ul {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.5rem; /* Reduce title size */
+  }
+
+  .button {
+    padding: 6px 10px;
+    font-size: 0.8rem; /* Smaller buttons on very small screens */
+  }
+
+  .total-ratings h4 {
+    font-size: 1.2rem; /* Smaller font for total ratings */
+  }
+
+  .filter-buttons h4 {
+    font-size: 1rem; /* Smaller filter heading */
+  }
+
+  table {
+    font-size: 0.8rem;
+  }
+}

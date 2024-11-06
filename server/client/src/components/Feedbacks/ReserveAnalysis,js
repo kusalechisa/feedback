@@ -3,32 +3,23 @@ import { useFeedbackContext } from "../../hooks/useFeedbackContext.js";
 import { useAuthContext } from "../../hooks/useAuthContext.js";
 import { Chart, registerables } from "chart.js/auto";
 import "./Analyze.css";
-// Register the necessary Chart.js components
 Chart.register(...registerables);
 
-// Analyze component
 const Analyze = () => {
-  // Get feedbacks and dispatch function from the feedbacks context
   const { feedbacks, dispatch } = useFeedbackContext();
-  // Get the user from the authentication context
   const { user } = useAuthContext();
-  // State for the selected sector
   const [selectedSector, setSelectedSector] = useState("");
   const [selectedOffice, setSelectedOffice] = useState("");
-  // Reference to the chart canvas element
   const chartRef = useRef(null);
-  // Reference to the Chart.js instance
   const chartInstanceRef = useRef(null);
-  const [selectedState, setSelectedState] = useState("both");
-
-  // State to store the counts of each label and the total feedbacks
+  const [selectedState] = useState("both");
   const [labelCounts, setLabelCounts] = useState({});
   const [totalFeedbacks, setTotalFeedbacks] = useState(0);
   const [selectedLabel, setSelectedLabel] = useState("All Ratings");
   const [displayTable, setDisplayTable] = useState("none");
-  // Fetch feedbacks from the API when the user changes
+
   useEffect(() => {
-    const fetchWorkouts = async () => {
+    const fetchFeedbacks = async () => {
       const response = await fetch("/api/feedbacks", {
         headers: { Authorization: `Bearer ${user.token}` },
       });
@@ -39,102 +30,70 @@ const Analyze = () => {
       }
     };
 
-    // Fetch feedbacks only if the user is available
     if (user) {
-      fetchWorkouts();
+      fetchFeedbacks();
     }
   }, [dispatch, user]);
 
-  // Update the chart and calculate counts when feedbacks or selectedSector changes
   useEffect(() => {
     if (feedbacks) {
       const labels = ["Not Good", "Average", "Good", "Very Good"];
-      let filteredWorkouts = feedbacks;
+      let filteredFeedbacks = feedbacks;
+
+      // Filter feedbacks based on state, if applicable
       if (selectedState !== "both") {
-        filteredWorkouts = filteredWorkouts.filter(
+        filteredFeedbacks = filteredFeedbacks.filter(
           (feedback) => feedback.identity?.toLowerCase() === selectedState
         );
       }
-      if (selectedSector) {
-        // Filter feedbacks by selected sector
-        filteredWorkouts = filteredWorkouts.filter(
-          (feedback) => feedback.selectedSector === selectedSector
-        );
-      }
 
-      if (selectedOffice) {
-        // Filter feedbacks by selected office
-        filteredWorkouts = filteredWorkouts.filter(
-          (feedback) => feedback.selectedOffice === selectedOffice
-        );
-      }
-
-      const totalFeedbacksCount = filteredWorkouts.length;
+      // Count feedbacks by label
+      const totalFeedbacksCount = filteredFeedbacks.length;
       const labelCounts = labels.reduce((acc, label) => {
-        acc[label] = filteredWorkouts.filter(
+        acc[label] = filteredFeedbacks.filter(
           (feedback) => feedback.stars === label
         ).length;
         return acc;
       }, {});
 
-      const data = labels.map((label) => {
-        const count = labelCounts[label] || 0;
-        const percentage = (count / totalFeedbacksCount) * 100;
-        return percentage.toFixed(2);
-      });
-
       setLabelCounts(labelCounts);
       setTotalFeedbacks(totalFeedbacksCount);
 
-      const colors = [
-        "#d40334", // Red
-        "#d5e6df", // Light Green
-        "#62de8b", // Green
-        "#53ad71", // Bright Green
-        "#026b25", // Lighter Green
-        "#02f713", // Even Greener
-      ];
-      const ctx = chartRef.current.getContext("2d");
-
       if (chartInstanceRef.current) {
-        // Destroy the previous chart instance
         chartInstanceRef.current.destroy();
       }
 
-      // Create a new Chart.js instance and render a pie chart
+      const ctx = chartRef.current.getContext("2d");
+
+      // Prepare chart data and keep it independent of selectedLabel
+      const chartData = labels.map((label) => labelCounts[label] || 0);
+
       chartInstanceRef.current = new Chart(ctx, {
-        type: "pie",
+        type: "bar",
         data: {
           labels: labels,
           datasets: [
             {
-              label: "Percentage",
-              data: data,
-              backgroundColor: colors,
-              borderColor: colors.map((color) => color.replace("0.2", "1")),
-              borderWidth: 1,
+              data: chartData,
+              backgroundColor: ["#d40334", "#d5e6df", "#62de8b", "#53ad71"],
             },
           ],
         },
         options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-              max: 100,
-              callback: function (value) {
-                return value + "%";
-              },
-            },
+          plugins: {
+            legend: { display: true },
           },
         },
       });
     }
   }, [feedbacks, selectedSector, selectedOffice, selectedState]);
+
   const handleLabelClick = (label) => {
     setSelectedLabel(label);
     setSelectedSector("");
     setSelectedOffice("");
   };
+
   const getSectorCounts = () => {
     const sectorCounts = {};
     feedbacks.forEach((feedback) => {
@@ -148,133 +107,51 @@ const Analyze = () => {
     });
     return sectorCounts;
   };
- const getOfficeCounts = () => {
-   const officeCounts = {};
-   feedbacks
-     .filter(
-       (feedback) =>
-         !selectedSector || feedback.selectedSector === selectedSector
-     )
-     .forEach((feedback) => {
-       if (
-         selectedLabel === "All Ratings" ||
-         feedback.stars === selectedLabel
-       ) {
-         if (!officeCounts[feedback.selectedOffice]) {
-           officeCounts[feedback.selectedOffice] = {};
-         }
-         officeCounts[feedback.selectedOffice][feedback.stars] =
-           (officeCounts[feedback.selectedOffice][feedback.stars] || 0) + 1;
-       }
-     });
-   return officeCounts;
- };
+
+  const getOfficeCounts = () => {
+    const officeCounts = {};
+    feedbacks
+      .filter(
+        (feedback) =>
+          !selectedSector || feedback.selectedSector === selectedSector
+      )
+      .forEach((feedback) => {
+        if (
+          selectedLabel === "All Ratings" ||
+          feedback.stars === selectedLabel
+        ) {
+          if (!officeCounts[feedback.selectedOffice]) {
+            officeCounts[feedback.selectedOffice] = {};
+          }
+          officeCounts[feedback.selectedOffice][feedback.stars] =
+            (officeCounts[feedback.selectedOffice][feedback.stars] || 0) + 1;
+        }
+      });
+    return officeCounts;
+  };
 
   return (
-    <div
-      className="home container rounded"
-      style={{ backgroundColor: "#ded8d7", marginTop: "10px", width: "100%" }}
-    >
-      <br />
-      <br />
-      <div className="row">
-        <div className="col-md-12">
-          <h4>Total Ratings: {totalFeedbacks}</h4>
-          <ul>
-            {Object.entries(labelCounts).map(([label, count]) => (
-              <li key={label}>
-                {label}: {count}
-              </li>
-            ))}
-          </ul>
-        </div>
+    <div className="analyze-container">
+      <h2 className="title">Feedback Analysis</h2>
+
+      <div className="total-ratings">
+        <h4>Total Ratings: {totalFeedbacks}</h4>
+        <ul>
+          {Object.entries(labelCounts).map(([label, count]) => (
+            <li key={label}>
+              <strong>{label}:</strong> {count} feedbacks
+            </li>
+          ))}
+        </ul>
       </div>
-      <br />
-      <br />
-      <br />
-      <div className="row">
-        <div className="col-md-6 " style={{ minHeight: "400px" }}>
+
+      <div className="content-wrapper">
+        <div className="chart-container">
           {feedbacks && <canvas ref={chartRef} />}
         </div>
-        <div className="col-md-6">
-          <h4 className="text-secondary">Choose Sector</h4>
-          <div
-            className="container rounded"
-            style={{ backgroundColor: "#ada9a8" }}
-          >
-            <div className="pb-4">
-              <h4 htmlFor="sector">Sector:</h4>
-              <select
-                id="sector"
-                onChange={(e) => {
-                  setSelectedSector(e.target.value);
-                  setSelectedOffice(""); // Reset the selected office when changing sector
-                }}
-                value={selectedSector}
-                className={`form-control ${
-                  selectedSector === "" ? "empty-field" : ""
-                } form-select form-select-md`}
-              >
-                <option value="">All Sectors</option>
-                {Array.from(
-                  new Set(
-                    feedbacks?.map((feedback) => feedback.selectedSector)
-                  ) || []
-                ).map((sector, index) => (
-                  <option key={index} value={sector}>
-                    {sector}
-                  </option>
-                ))}
-              </select>
-            </div>
-            {selectedSector !== "" && feedbacks && feedbacks.length > 0 && (
-              <div className="pb-4">
-                <h5 htmlFor="office">Office:</h5>
-                <select
-                  id="office"
-                  onChange={(e) => setSelectedOffice(e.target.value)}
-                  value={selectedOffice}
-                  className={`form-control ${
-                    selectedOffice === "" ? "empty-field" : ""
-                  } form-select form-select-md`}
-                >
-                  <option value="">All Offices</option>
-                  {Array.from(
-                    new Set(
-                      feedbacks
-                        ?.filter(
-                          (feedback) =>
-                            feedback.selectedSector === selectedSector
-                        )
-                        ?.map((feedback) => feedback.selectedOffice)
-                    ) || []
-                  ).map((office, index) => (
-                    <option key={index} value={office}>
-                      {office}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
-          </div>
-          <div className="identity-container">
-            <h3 htmlFor="state">Customer:</h3>
-            <select
-              id="state"
-              onChange={(e) => setSelectedState(e.target.value)}
-              value={selectedState}
-              className={`form-control ${
-                selectedState === "" ? "empty-field" : ""
-              } form-select form-select-md`}
-            >
-              <option value="both">Both</option>
-              <option value="internal">Internal</option>
-              <option value="external">External</option>
-            </select>
-          </div>
-        </div>
+
+       
       </div>
-      
  <div className="filter-buttons">
           <h4>Select Rating</h4>
           <div className="buttons">
@@ -396,8 +273,6 @@ const Analyze = () => {
         </div>
       )}
     </div>
-    
-   
   );
 };
 
