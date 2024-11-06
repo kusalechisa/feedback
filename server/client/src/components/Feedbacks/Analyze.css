@@ -47,7 +47,6 @@ h5 {
   width: 300px; /* Adjust width as needed */
   margin: 20px auto;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-
 }
 
 .ratings-container h4 {
@@ -91,7 +90,9 @@ h4 {
   gap: 10px;
   margin: 20px 0;
 }
-.rating-buttons{margin-top: 100px;}
+.rating-buttons {
+  margin-top: 100px;
+}
 .selectors-container {
   justify-content: space-between;
 }
@@ -129,7 +130,6 @@ h4 {
 }
 
 .button {
-    
   background-color: #28a745;
   color: white;
 }
@@ -213,11 +213,6 @@ canvas {
 .sector-table tr:hover,
 .office-table tr:hover {
   background-color: #ddd;
-}
-
-/* Date formatting */
-td {
-  text-align: center;
 }
 
 /* Responsive Styles */

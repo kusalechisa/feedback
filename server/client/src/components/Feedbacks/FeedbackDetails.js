@@ -5,7 +5,8 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useState, useMemo } from "react";
 import { format } from "date-fns";
 import "./FeedbackDetails.css";
-import "./Analyze.css";
+import ConfirmationModal from "../DeleteModal/ConfirmationModal"
+
 const FeedbackDetails = ({ feedbacks }) => {
   const { dispatch } = useFeedbackContext();
   const { user } = useAuthContext();
@@ -16,8 +17,8 @@ const FeedbackDetails = ({ feedbacks }) => {
   const [showCustomerInfo, setShowCustomerInfo] = useState(false);
   const [showDeskColumn, setShowDeskColumn] = useState(false);
   const [showDeleteButton, setShowDeleteButton] = useState(false);
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [feedbackToDelete, setFeedbackToDelete] = useState(null);
-
   const handleDelete = async (feedbackId) => {
     if (!user) return;
 
@@ -32,8 +33,13 @@ const FeedbackDetails = ({ feedbacks }) => {
 
     if (response.ok) {
       dispatch({ type: "DELETE_FEEDBACK", payload: json });
-      setFeedbackToDelete(null); // Reset deletion state after successful delete
+      // Hide the confirmation modal after the deletion
+      setShowConfirmationModal(false);
     }
+  };
+  const handleDeleteClick = (feedbackId) => {
+    setFeedbackToDelete(feedbackId);
+    setShowConfirmationModal(true);
   };
 
   const filteredFeedbacks = useMemo(() => {
@@ -72,16 +78,6 @@ const FeedbackDetails = ({ feedbacks }) => {
       <div>{format(date, "dd-MM-yyyy")}</div>
     </>
   );
-
-  const confirmDelete = () => {
-    if (feedbackToDelete) {
-      handleDelete(feedbackToDelete);
-    }
-  };
-
-  const cancelDelete = () => {
-    setFeedbackToDelete(null); // Reset state to cancel deletion
-  };
 
   return (
     <>
@@ -251,31 +247,12 @@ const FeedbackDetails = ({ feedbacks }) => {
                   <td>{formatDate(new Date(feedback.createdAt))}</td>
                   {showDeleteButton && (
                     <td className="text-center trash-column px-0">
-                      <div className="delete-button-container">
-                        <button
-                          className="btn btn-danger"
-                          onClick={() => setFeedbackToDelete(feedback._id)}
-                        >
-                          <FontAwesomeIcon icon={faTrash} />
-                        </button>
-                        {feedbackToDelete === feedback._id && (
-                          <div className="confirmation-card">
-                          
-                            <button
-                              className="btn btn-danger"
-                              onClick={confirmDelete}
-                            >
-                              Confirm
-                            </button>
-                            <button
-                              className="btn btn-secondary"
-                              onClick={cancelDelete}
-                            >
-                              Cancel
-                            </button>
-                          </div>
-                        )}
-                      </div>
+                      <button
+                        className="btn btn-danger"
+                        onClick={() => handleDeleteClick(feedback._id)}
+                      >
+                        <FontAwesomeIcon icon={faTrash} />
+                      </button>
                     </td>
                   )}
                 </tr>
@@ -284,6 +261,13 @@ const FeedbackDetails = ({ feedbacks }) => {
           </tbody>
         </table>
       </div>
+      {/* Confirmation Modal */}
+      <ConfirmationModal
+        show={showConfirmationModal}
+        message="Are you sure you want to delete this?"
+        onConfirm={() => handleDelete(feedbackToDelete)}
+        onCancel={() => setShowConfirmationModal(false)}
+      />
     </>
   );
 };

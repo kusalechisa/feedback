@@ -4,14 +4,17 @@ import { useAuthContextC } from "../../hooks/useAuthContextC";
 import { format } from "date-fns";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import ConfirmationModal from "../DeleteModal/ConfirmationModal"; // Import the modal component
 import "./ComplaintDetail.css";
 
 const ComplaintDetails = ({ complaints }) => {
   const { dispatchc } = useComplaintContext();
   const { admin } = useAuthContextC();
   const [showContactInfo, setShowContactInfo] = useState(false);
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+  const [complaintToDelete, setComplaintToDelete] = useState(null);
 
-  const handleClick = async (complaintId) => {
+  const handleDelete = async (complaintId) => {
     if (!admin) return;
 
     const response = await fetch(`/api/complaints/${complaintId}`, {
@@ -26,6 +29,9 @@ const ComplaintDetails = ({ complaints }) => {
     if (response.ok) {
       dispatchc({ type: "DELETE_COMPLAINT", payload: json });
     }
+
+    // Hide the confirmation modal after the deletion
+    setShowConfirmationModal(false);
   };
 
   const formatDate = (date) => (
@@ -37,6 +43,11 @@ const ComplaintDetails = ({ complaints }) => {
 
   const handlePrint = () => {
     window.print();
+  };
+
+  const handleDeleteClick = (complaintId) => {
+    setComplaintToDelete(complaintId);
+    setShowConfirmationModal(true);
   };
 
   return (
@@ -77,7 +88,7 @@ const ComplaintDetails = ({ complaints }) => {
                 <td className="trash-column">
                   <button
                     className="btn text-danger"
-                    onClick={() => handleClick(complaint._id)}
+                    onClick={() => handleDeleteClick(complaint._id)}
                   >
                     <FontAwesomeIcon icon={faTrash} />
                   </button>
@@ -87,6 +98,14 @@ const ComplaintDetails = ({ complaints }) => {
           </tbody>
         </table>
       </div>
+
+      {/* Confirmation Modal */}
+      <ConfirmationModal
+        show={showConfirmationModal}
+        message="Are you sure you want to delete this?"
+        onConfirm={() => handleDelete(complaintToDelete)}
+        onCancel={() => setShowConfirmationModal(false)}
+      />
     </div>
   );
 };
